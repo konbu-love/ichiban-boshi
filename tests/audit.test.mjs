@@ -135,6 +135,24 @@ test('明るい方を採用: 二星のうち暗い方が近くても明るい方
   assert.equal(m.ambiguous[0].needsReview, false);
 });
 
+test('二重星の判断: 明るさが近いときは元データの名前がある星を採用し、記録を残す', () => {
+  const stars = [
+    { type: 'Feature', id: 20, properties: { mag: 4.0 }, geometry: { type: 'Point', coordinates: [60, 10] } },
+    { type: 'Feature', id: 21, properties: { mag: 4.2 }, geometry: { type: 'Point', coordinates: [60.01, 10] } },
+  ];
+  const nearest = buildMatcher(parseStars({ type: 'FeatureCollection', features: stars }));
+  const fc = { type: 'FeatureCollection', features: [{ type: 'Feature', id: 'Y', properties: {}, geometry: { type: 'LineString', coordinates: [[60, 10], [61, 10]] } }] };
+  const pick = (sorted) => { const w = sorted.filter((c) => c.hip === 21); return w.length === 1 ? { chosen: w[0], basis: 'bayer' } : null; };
+  const m = matchPolylines(fc, nearest, 0.05, 6.0, pick);
+  assert.deepEqual([...m.hipSet], [21]);
+  assert.equal(m.ambiguous[0].basis, 'bayer');
+  assert.equal(m.ambiguous[0].confirmed, true);
+  const m2 = matchPolylines(fc, nearest, 0.05, 6.0, () => null);
+  assert.deepEqual([...m2.hipSet], [20]);
+  assert.equal(m2.ambiguous[0].basis, 'brightest');
+  assert.equal(m2.ambiguous[0].confirmed, false);
+});
+
 test('星の名前: 固有名・日本語キー・6.0等以下の固有名の数', () => {
   const { stars8, names } = makeSynthetic();
   const magByHip = new Map(parseStars(stars8).map((s) => [s.hip, s.mag]));

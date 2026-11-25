@@ -127,7 +127,7 @@ export function buildMatcher(stars) {
 const HIST_EDGES = [0.001, 0.005, 0.01, 0.02, 0.05, 0.1, 0.25, 0.5, 1, 2];
 
 // 座標列(星座線・アステリズム)を恒星に突き合わせる
-export function matchPolylines(fc, nearest, eps, magLimit = 6.0) {
+export function matchPolylines(fc, nearest, eps, magLimit = 6.0, pick = null) {
   const hist = Object.fromEntries([...HIST_EDGES.map((e) => `<${e}`), '>=2/なし'].map((k) => [k, 0]));
   const unmatched = [];
   const ambiguous = [];
@@ -161,13 +161,22 @@ export function matchPolylines(fc, nearest, eps, magLimit = 6.0) {
         if (best && best.sep <= eps) {
           // 規則: eps内に複数の星があるときは一番明るい星を採用(同等なら近い方)
           const sorted = [...cands].sort((a, b) => a.mag - b.mag || a.sep - b.sep);
-          const chosen = sorted[0];
+          let chosen = sorted[0];
           if (sorted.length > 1) {
+            const needsReview = Math.abs(sorted[0].mag - sorted[1].mag) < 0.5;
+            let basis = 'brightest'; // 判断方法の記録: brightest=暗い星との差が大きい/確認材料なし, bayer/name=元データの命名で確認
+            if (needsReview && pick) {
+              const r = pick(sorted);
+              if (r) { chosen = r.chosen; basis = r.basis; }
+            }
             ambiguous.push({
               feature: id, vertex: vi, lon, lat,
-              chosen, nearest: best, others: sorted.slice(1),
+              chosen, nearest: best, others: sorted.filter((c) => c.hip !== chosen.hip),
               chosenIsNearest: chosen.hip === best.hip,
-              needsReview: Math.abs(sorted[0].mag - sorted[1].mag) < 0.5,
+              needsReview,
+              basis,
+              confirmed: basis !== 'brightest' || !needsReview,
+              candidates: pick?.describe ? sorted.map((c) => ({ hip: c.hip, mag: c.mag, ...pick.describe(c.hip) })) : undefined,
             });
           }
           cur = chosen.hip;
@@ -503,9 +512,26 @@ export async function runAudit(opts) {
 
   const nearest = buildMatcher(stars8.length ? stars8 : stars6);
   const linesFc = readJson(dataDir, 'constellations.lines.json').json;
-  const lines = matchPolylines(linesFc, nearest, eps);
+  const namesRaw = readJson(dataDir, 'starnames.json').json;
+  // 判断方法: 明るさが近い(差0.5等未満)二重星は、元データ(starnames)で名前・ベイヤー符号が付く星が1つだけならそれを採用。
+  // 確認材料がなければ暫定的に明るい方。
+  const info = (hip) => {
+    const v = namesRaw?.[hip] ?? namesRaw?.[String(hip)];
+    if (!v || typeof v !== 'object') return {};
+    const nm = typeof v.name === 'string' ? v.name : v.name?.en ?? '';
+    return { name: nm || undefined, bayer: v.bayer || undefined, flam: v.flam || undefined, desig: v.desig || undefined };
+  };
+  const pick = (sorted) => {
+    const withBayer = sorted.filter((c) => info(c.hip).bayer);
+    if (withBayer.length === 1) return { chosen: withBayer[0], basis: 'bayer' };
+    const withName = sorted.filter((c) => info(c.hip).name);
+    if (withName.length === 1) return { chosen: withName[0], basis: 'name' };
+    return null;
+  };
+  pick.describe = info;
+  const lines = matchPolylines(linesFc, nearest, eps, 6.0, pick);
 
-  const names = analyzeNames(readJson(dataDir, 'starnames.json').json, magByHip);
+  const names = analyzeNames(namesRaw, magByHip);
   const counts = selectionCounts(lines.hipSet, names.namedHips, magByHip);
   const union = new Set([...lines.hipSet, ...names.namedHips].filter((h) => (magByHip.get(h) ?? 99) <= 6.0));
   const brightNotSelectable = brightButNotSelectable(stars6, union, 3.5);
