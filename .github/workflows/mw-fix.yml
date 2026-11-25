@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 22
       - name: d3-celestial を版固定で取得
-        run: npm install --no-save --prefix .audit-deps d3-celestial@0.7.35
+        run: npm install --no-save --prefix .audit-deps d3-celestial@0.7.35 astronomy-engine
       - name: テスト(合成データでの判定ロジック)
         run: node --test tests/mw.test.mjs
       - name: 天の川サンプルを生成・検証(不合格でも結果は保存する)
@@ -32,6 +32,34 @@ jobs:
           echo $? > docs/mwfix/run-exit.txt
           tail -80 docs/mwfix/run-log.txt
           exit 0
+      - name: ライセンス原文とライブラリ版の照合を保存
+        run: |
+          mkdir -p docs/mwfix/licenses
+          for p in d3-celestial astronomy-engine; do
+            for L in .audit-deps/node_modules/$p/LICENSE*; do
+              [ -f "$L" ] && cp "$L" "docs/mwfix/licenses/$p-$(basename "$L")"
+            done
+            node -p "const j=require('./.audit-deps/node_modules/$p/package.json');'$p '+j.version+' / license: '+j.license" >> docs/mwfix/licenses/versions.txt
+          done
+          B=$(find .audit-deps/node_modules/astronomy-engine -name 'astronomy.browser.min.js' | head -1)
+          node -e "
+            const fs=require('fs');
+            const mine=fs.readFileSync('data-src/p28-embedded-astronomy-lib.js','utf8');
+            const npm=fs.readFileSync('$B','utf8');
+            const norm=s=>s.replace(/\\s+/g,'');
+            const crypto=require('crypto');
+            const h=s=>crypto.createHash('sha256').update(s).digest('hex').slice(0,16);
+            const out=[
+              '試作28に埋め込まれたライブラリ: '+mine.length+' 文字 sha256='+h(mine),
+              'npm の astronomy.browser.min.js: '+npm.length+' 文字 sha256='+h(npm),
+              '完全一致: '+(mine===npm),
+              '空白を除いて一致: '+(norm(mine)===norm(npm)),
+              'npm版が埋め込み版に含まれる(空白除く): '+norm(mine).includes(norm(npm)),
+              '埋め込み版が npm版に含まれる(空白除く): '+norm(npm).includes(norm(mine))
+            ];
+            fs.writeFileSync('docs/mwfix/licenses/lib-compare.txt',out.join('\n')+'\n');
+            console.log(out.join('\n'));
+          " || echo "照合に失敗" > docs/mwfix/licenses/lib-compare.txt
       - name: 結果をコミット
         run: |
           git config user.name "github-actions[bot]"
