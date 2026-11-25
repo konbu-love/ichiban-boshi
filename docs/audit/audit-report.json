@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generatedAt": "2026-11-25T10:51:41.866Z",
+  "generatedAt": "2026-11-25T11:01:50.787Z",
   "d3CelestialVersion": "0.7.35",
   "eps": 0.05
  },
@@ -54,7 +54,7 @@
  "lines": {
   "eps": 0.05,
   "vertices": 893,
-  "uniqueMatchedHip": 735,
+  "uniqueMatchedHip": 757,
   "histogram": {
    "<0.001": 893,
    "<0.005": 0,
@@ -75,384 +75,605 @@
     "vertex": 1,
     "lon": -114.9133,
     "lat": -78.6957,
-    "first": {
+    "chosen": {
      "hip": 80047,
      "sep": 8.537736462515939e-7,
      "mag": 4.68
     },
-    "second": {
-     "hip": 80057,
-     "sep": 0.028630415428465478,
-     "mag": 5.27
-    }
+    "nearest": {
+     "hip": 80047,
+     "sep": 8.537736462515939e-7,
+     "mag": 4.68
+    },
+    "others": [
+     {
+      "hip": 80057,
+      "sep": 0.028630415428465478,
+      "mag": 5.27
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Boo",
     "vertex": 6,
     "lon": -131.1243,
     "lat": 33.3148,
-    "first": {
+    "chosen": {
      "hip": 74666,
      "sep": 0,
      "mag": 3.46
     },
-    "second": {
-     "hip": 74674,
-     "sep": 0.029140800395174905,
-     "mag": 7.8
-    }
+    "nearest": {
+     "hip": 74666,
+     "sep": 0,
+     "mag": 3.46
+    },
+    "others": [
+     {
+      "hip": 74674,
+      "sep": 0.029140800395174905,
+      "mag": 7.8
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Boo",
     "vertex": 2,
     "lon": -146.6341,
     "lat": 51.7879,
-    "first": {
+    "chosen": {
+     "hip": 69483,
+     "sep": 0.003738369949569533,
+     "mag": 4.53
+    },
+    "nearest": {
      "hip": 69481,
      "sep": 0,
      "mag": 6.62
     },
-    "second": {
-     "hip": 69483,
-     "sep": 0.003738369949569533,
-     "mag": 4.53
-    }
+    "others": [
+     {
+      "hip": 69481,
+      "sep": 0,
+      "mag": 6.62
+     }
+    ],
+    "chosenIsNearest": false,
+    "needsReview": false
    },
    {
     "feature": "Cnc",
     "vertex": 3,
     "lon": 131.6666,
     "lat": 28.7651,
-    "first": {
+    "chosen": {
+     "hip": 43103,
+     "sep": 0.008520700435192215,
+     "mag": 4.03
+    },
+    "nearest": {
      "hip": 43100,
      "sep": 0,
      "mag": 6.58
     },
-    "second": {
-     "hip": 43103,
-     "sep": 0.008520700435192215,
-     "mag": 4.03
-    }
+    "others": [
+     {
+      "hip": 43100,
+      "sep": 0,
+      "mag": 6.58
+     }
+    ],
+    "chosenIsNearest": false,
+    "needsReview": false
    },
    {
     "feature": "CVn",
     "vertex": 0,
     "lon": -165.9981,
     "lat": 38.3149,
-    "first": {
+    "chosen": {
+     "hip": 63125,
+     "sep": 0.005257354962712113,
+     "mag": 2.89
+    },
+    "nearest": {
      "hip": 63121,
      "sep": 0,
      "mag": 5.61
     },
-    "second": {
-     "hip": 63125,
-     "sep": 0.005257354962712113,
-     "mag": 2.89
-    }
+    "others": [
+     {
+      "hip": 63121,
+      "sep": 0,
+      "mag": 5.61
+     }
+    ],
+    "chosenIsNearest": false,
+    "needsReview": false
    },
    {
     "feature": "Car",
     "vertex": 5,
     "lon": 163.3736,
     "lat": -58.8532,
-    "first": {
+    "chosen": {
      "hip": 53253,
      "sep": 0,
      "mag": 3.78
     },
-    "second": {
-     "hip": 53231,
-     "sep": 0.04426010683784548,
-     "mag": 6.26
-    }
+    "nearest": {
+     "hip": 53253,
+     "sep": 0,
+     "mag": 3.78
+    },
+    "others": [
+     {
+      "hip": 53231,
+      "sep": 0.04426010683784548,
+      "mag": 6.26
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Cen",
     "vertex": 0,
     "lon": -140.1038,
     "lat": -60.8372,
-    "first": {
+    "chosen": {
+     "hip": 71683,
+     "sep": 0.004301931072043025,
+     "mag": -0.01
+    },
+    "nearest": {
      "hip": 71681,
      "sep": 0,
      "mag": 1.35
     },
-    "second": {
-     "hip": 71683,
-     "sep": 0.004301931072043025,
-     "mag": -0.01
-    }
+    "others": [
+     {
+      "hip": 71681,
+      "sep": 0,
+      "mag": 1.35
+     }
+    ],
+    "chosenIsNearest": false,
+    "needsReview": false
    },
    {
     "feature": "Cep",
     "vertex": 6,
     "lon": -22.7072,
     "lat": 58.4152,
-    "first": {
+    "chosen": {
      "hip": 110991,
      "sep": 0,
      "mag": 4.07
     },
-    "second": {
-     "hip": 110988,
-     "sep": 0.011326246419328584,
-     "mag": 6.31
-    }
+    "nearest": {
+     "hip": 110991,
+     "sep": 0,
+     "mag": 4.07
+    },
+    "others": [
+     {
+      "hip": 110988,
+      "sep": 0.011326246419328584,
+      "mag": 6.31
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Cha",
     "vertex": 4,
     "lon": 179.9066,
     "lat": -78.2218,
-    "first": {
+    "chosen": {
      "hip": 58484,
      "sep": 8.537736462515939e-7,
      "mag": 4.88
     },
-    "second": {
-     "hip": 58520,
-     "sep": 0.03719873051928444,
-     "mag": 6.58
-    }
+    "nearest": {
+     "hip": 58484,
+     "sep": 8.537736462515939e-7,
+     "mag": 4.88
+    },
+    "others": [
+     {
+      "hip": 58520,
+      "sep": 0.03719873051928444,
+      "mag": 6.58
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Cyg",
     "vertex": 3,
     "lon": -67.3197,
     "lat": 27.9597,
-    "first": {
+    "chosen": {
      "hip": 95947,
      "sep": 8.537736462515939e-7,
      "mag": 3.05
     },
-    "second": {
-     "hip": 95951,
-     "sep": 0.009579872089617218,
-     "mag": 5.12
-    }
+    "nearest": {
+     "hip": 95947,
+     "sep": 8.537736462515939e-7,
+     "mag": 3.05
+    },
+    "others": [
+     {
+      "hip": 95951,
+      "sep": 0.009579872089617218,
+      "mag": 5.12
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Del",
     "vertex": 3,
     "lon": -48.3381,
     "lat": 16.1241,
-    "first": {
+    "chosen": {
+     "hip": 102532,
+     "sep": 0.0026014865475611345,
+     "mag": 4.27
+    },
+    "nearest": {
      "hip": 102531,
      "sep": 0,
      "mag": 5.15
     },
-    "second": {
-     "hip": 102532,
-     "sep": 0.0026014865475611345,
-     "mag": 4.27
-    }
+    "others": [
+     {
+      "hip": 102531,
+      "sep": 0,
+      "mag": 5.15
+     }
+    ],
+    "chosenIsNearest": false,
+    "needsReview": false
    },
    {
     "feature": "Dra",
     "vertex": 3,
     "lon": -96.9332,
     "lat": 55.173,
-    "first": {
+    "chosen": {
      "hip": 85829,
      "sep": 0,
      "mag": 4.86
     },
-    "second": {
-     "hip": 85819,
-     "sep": 0.0171738509082633,
-     "mag": 4.89
-    }
+    "nearest": {
+     "hip": 85829,
+     "sep": 0,
+     "mag": 4.86
+    },
+    "others": [
+     {
+      "hip": 85819,
+      "sep": 0.0171738509082633,
+      "mag": 4.89
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": true
    },
    {
     "feature": "Lup",
     "vertex": 7,
     "lon": -130.3666,
     "lat": -47.8753,
-    "first": {
+    "chosen": {
      "hip": 74911,
      "sep": 0,
      "mag": 4.27
     },
-    "second": {
-     "hip": 74915,
-     "sep": 0.006374532483025831,
-     "mag": 6.87
-    }
+    "nearest": {
+     "hip": 74911,
+     "sep": 0,
+     "mag": 4.27
+    },
+    "others": [
+     {
+      "hip": 74915,
+      "sep": 0.006374532483025831,
+      "mag": 6.87
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Lyr",
     "vertex": 0,
     "lon": -78.8068,
     "lat": 37.6051,
-    "first": {
+    "chosen": {
      "hip": 91971,
      "sep": 0,
      "mag": 4.34
     },
-    "second": {
-     "hip": 91973,
-     "sep": 0.012104024915574392,
-     "mag": 5.73
-    }
+    "nearest": {
+     "hip": 91971,
+     "sep": 0,
+     "mag": 4.34
+    },
+    "others": [
+     {
+      "hip": 91973,
+      "sep": 0.012104024915574392,
+      "mag": 5.73
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Lyr",
     "vertex": 3,
     "lon": -78.8068,
     "lat": 37.6051,
-    "first": {
+    "chosen": {
      "hip": 91971,
      "sep": 0,
      "mag": 4.34
     },
-    "second": {
-     "hip": 91973,
-     "sep": 0.012104024915574392,
-     "mag": 5.73
-    }
+    "nearest": {
+     "hip": 91971,
+     "sep": 0,
+     "mag": 4.34
+    },
+    "others": [
+     {
+      "hip": 91973,
+      "sep": 0.012104024915574392,
+      "mag": 5.73
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Lyr",
     "vertex": 7,
     "lon": -78.8068,
     "lat": 37.6051,
-    "first": {
+    "chosen": {
      "hip": 91971,
      "sep": 0,
      "mag": 4.34
     },
-    "second": {
-     "hip": 91973,
-     "sep": 0.012104024915574392,
-     "mag": 5.73
-    }
+    "nearest": {
+     "hip": 91971,
+     "sep": 0,
+     "mag": 4.34
+    },
+    "others": [
+     {
+      "hip": 91973,
+      "sep": 0.012104024915574392,
+      "mag": 5.73
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Mon",
     "vertex": 2,
     "lon": 95.942,
     "lat": 4.5929,
-    "first": {
+    "chosen": {
      "hip": 30419,
      "sep": 0,
      "mag": 4.39
     },
-    "second": {
-     "hip": 30422,
-     "sep": 0.0034101629364689614,
-     "mag": 6.72
-    }
+    "nearest": {
+     "hip": 30419,
+     "sep": 0,
+     "mag": 4.39
+    },
+    "others": [
+     {
+      "hip": 30422,
+      "sep": 0.0034101629364689614,
+      "mag": 6.72
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Nor",
     "vertex": 1,
     "lon": -113.204,
     "lat": -47.5548,
-    "first": {
+    "chosen": {
      "hip": 80582,
      "sep": 8.537736462515939e-7,
      "mag": 4.46
     },
-    "second": {
-     "hip": 80579,
-     "sep": 0.00625041546667448,
-     "mag": 6.69
-    }
+    "nearest": {
+     "hip": 80582,
+     "sep": 8.537736462515939e-7,
+     "mag": 4.46
+    },
+    "others": [
+     {
+      "hip": 80579,
+      "sep": 0.00625041546667448,
+      "mag": 6.69
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Oph",
     "vertex": 5,
     "lon": -113.6037,
     "lat": -23.4472,
-    "first": {
+    "chosen": {
      "hip": 80473,
      "sep": 0.0000012074182697257333,
      "mag": 4.57
     },
-    "second": {
-     "hip": 80474,
-     "sep": 0.04200010023519498,
-     "mag": 7.27
-    }
+    "nearest": {
+     "hip": 80473,
+     "sep": 0.0000012074182697257333,
+     "mag": 4.57
+    },
+    "others": [
+     {
+      "hip": 80461,
+      "sep": 0.0433682130894324,
+      "mag": 6.75
+     },
+     {
+      "hip": 80474,
+      "sep": 0.04200010023519498,
+      "mag": 7.27
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Psc",
     "vertex": 11,
     "lon": 18.4329,
     "lat": 7.5754,
-    "first": {
+    "chosen": {
      "hip": 5737,
      "sep": 0,
      "mag": 5.21
     },
-    "second": {
-     "hip": 5743,
-     "sep": 0.006350994392670356,
-     "mag": 6.44
-    }
+    "nearest": {
+     "hip": 5737,
+     "sep": 0,
+     "mag": 5.21
+    },
+    "others": [
+     {
+      "hip": 5743,
+      "sep": 0.006350994392670356,
+      "mag": 6.44
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Sco",
     "vertex": 2,
     "lon": -118.6407,
     "lat": -19.8055,
-    "first": {
+    "chosen": {
      "hip": 78820,
      "sep": 0,
      "mag": 2.56
     },
-    "second": {
-     "hip": 78821,
-     "sep": 0.003802106547468134,
-     "mag": 4.9
-    }
+    "nearest": {
+     "hip": 78820,
+     "sep": 0,
+     "mag": 2.56
+    },
+    "others": [
+     {
+      "hip": 78821,
+      "sep": 0.003802106547468134,
+      "mag": 4.9
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    },
    {
     "feature": "Ser",
     "vertex": 5,
     "lon": -75.9451,
     "lat": 4.2036,
-    "first": {
+    "chosen": {
      "hip": 92946,
      "sep": 0.0000012074182697257333,
      "mag": 4.62
     },
-    "second": {
-     "hip": 92951,
-     "sep": 0.0062657913373606105,
-     "mag": 4.98
-    }
+    "nearest": {
+     "hip": 92946,
+     "sep": 0.0000012074182697257333,
+     "mag": 4.62
+    },
+    "others": [
+     {
+      "hip": 92951,
+      "sep": 0.0062657913373606105,
+      "mag": 4.98
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": true
    },
    {
     "feature": "Tuc",
     "vertex": 2,
     "lon": 7.8861,
     "lat": -62.9582,
-    "first": {
+    "chosen": {
      "hip": 2484,
      "sep": 8.537736462515939e-7,
      "mag": 4.36
     },
-    "second": {
-     "hip": 2487,
-     "sep": 0.0075596840723703915,
-     "mag": 4.53
-    }
+    "nearest": {
+     "hip": 2484,
+     "sep": 8.537736462515939e-7,
+     "mag": 4.36
+    },
+    "others": [
+     {
+      "hip": 2487,
+      "sep": 0.0075596840723703915,
+      "mag": 4.53
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": true
    },
    {
     "feature": "Vol",
     "vertex": 4,
     "lon": 107.1869,
     "lat": -70.4989,
-    "first": {
+    "chosen": {
      "hip": 34481,
      "sep": 0,
      "mag": 3.78
     },
-    "second": {
-     "hip": 34473,
-     "sep": 0.003910795624423714,
-     "mag": 5.68
-    }
+    "nearest": {
+     "hip": 34481,
+     "sep": 0,
+     "mag": 3.78
+    },
+    "others": [
+     {
+      "hip": 34473,
+      "sep": 0.003910795624423714,
+      "mag": 5.68
+     }
+    ],
+    "chosenIsNearest": true,
+    "needsReview": false
    }
   ],
   "faint": [
@@ -541,6 +762,14 @@
     ]
    ],
    "Aps": [
+    [
+     72370,
+     80047
+    ],
+    [
+     80047,
+     81852
+    ],
     [
      81852,
      81065
@@ -746,6 +975,14 @@
      73555
     ],
     [
+     73555,
+     74666
+    ],
+    [
+     74666,
+     72105
+    ],
+    [
      72105,
      69673
     ],
@@ -756,6 +993,14 @@
     [
      71075,
      69732
+    ],
+    [
+     69732,
+     69483
+    ],
+    [
+     69483,
+     70497
     ],
     [
      70497,
@@ -816,11 +1061,20 @@
      42806
     ],
     [
+     42806,
+     43103
+    ],
+    [
      42911,
      40526
     ]
    ],
-   "CVn": [],
+   "CVn": [
+    [
+     63125,
+     61317
+    ]
+   ],
    "CMa": [
     [
      30324,
@@ -979,6 +1233,14 @@
     [
      54751,
      54463
+    ],
+    [
+     54463,
+     53253
+    ],
+    [
+     53253,
+     51576
     ]
    ],
    "Cas": [
@@ -1045,6 +1307,10 @@
      65109
     ],
     [
+     71683,
+     66657
+    ],
+    [
      66657,
      68702
     ],
@@ -1077,6 +1343,14 @@
     [
      109857,
      109492
+    ],
+    [
+     109492,
+     110991
+    ],
+    [
+     110991,
+     112724
     ],
     [
      112724,
@@ -1169,6 +1443,14 @@
     [
      52595,
      60000
+    ],
+    [
+     60000,
+     58484
+    ],
+    [
+     58484,
+     51839
     ]
    ],
    "Cir": [
@@ -1363,6 +1645,10 @@
     [
      100453,
      98110
+    ],
+    [
+     98110,
+     95947
     ]
    ],
    "Del": [
@@ -1373,6 +1659,14 @@
     [
      101769,
      101958
+    ],
+    [
+     101958,
+     102532
+    ],
+    [
+     102532,
+     102281
     ],
     [
      102281,
@@ -1417,6 +1711,14 @@
     [
      87833,
      85670
+    ],
+    [
+     85670,
+     85829
+    ],
+    [
+     85829,
+     87585
     ],
     [
      87585,
@@ -2075,6 +2377,14 @@
      74395
     ],
     [
+     74395,
+     74911
+    ],
+    [
+     74911,
+     75264
+    ],
+    [
      75264,
      76297
     ],
@@ -2119,8 +2429,20 @@
    ],
    "Lyr": [
     [
+     91971,
+     91926
+    ],
+    [
      91926,
      91262
+    ],
+    [
+     91262,
+     91971
+    ],
+    [
+     91971,
+     92791
     ],
     [
      92791,
@@ -2129,6 +2451,10 @@
     [
      93194,
      92420
+    ],
+    [
+     92420,
+     91971
     ]
    ],
    "Men": [
@@ -2189,6 +2515,14 @@
      32578
     ],
     [
+     32578,
+     30419
+    ],
+    [
+     30419,
+     31216
+    ],
+    [
      31216,
      31978
     ]
@@ -2220,6 +2554,14 @@
     ]
    ],
    "Nor": [
+    [
+     78914,
+     80582
+    ],
+    [
+     80582,
+     80000
+    ],
     [
      80000,
      78639
@@ -2295,6 +2637,10 @@
     [
      80569,
      80343
+    ],
+    [
+     80343,
+     80473
     ],
     [
      86742,
@@ -2683,6 +3029,14 @@
      7007
     ],
     [
+     7007,
+     5737
+    ],
+    [
+     5737,
+     4906
+    ],
+    [
      4906,
      3786
     ],
@@ -2982,6 +3336,10 @@
     ],
     [
      78401,
+     78820
+    ],
+    [
+     78401,
      80112
     ],
     [
@@ -3073,6 +3431,10 @@
     [
      88404,
      89962
+    ],
+    [
+     89962,
+     92946
     ]
    ],
    "Sex": [
@@ -3177,6 +3539,14 @@
     [
      110130,
      114996
+    ],
+    [
+     114996,
+     2484
+    ],
+    [
+     2484,
+     1599
     ],
     [
      1599,
@@ -3401,6 +3771,14 @@
      35228
     ],
     [
+     35228,
+     34481
+    ],
+    [
+     34481,
+     39794
+    ],
+    [
      39794,
      44382
     ]
@@ -3438,7 +3816,7 @@
    "Aps": {
     "vertices": 4,
     "unmatched": 0,
-    "edges": 1
+    "edges": 3
    },
    "Aqr": {
     "vertices": 19,
@@ -3468,7 +3846,7 @@
    "Boo": {
     "vertices": 15,
     "unmatched": 0,
-    "edges": 9
+    "edges": 13
    },
    "Cae": {
     "vertices": 4,
@@ -3483,12 +3861,12 @@
    "Cnc": {
     "vertices": 6,
     "unmatched": 0,
-    "edges": 3
+    "edges": 4
    },
    "CVn": {
     "vertices": 2,
     "unmatched": 0,
-    "edges": 0
+    "edges": 1
    },
    "CMa": {
     "vertices": 14,
@@ -3508,7 +3886,7 @@
    "Car": {
     "vertices": 20,
     "unmatched": 0,
-    "edges": 16
+    "edges": 18
    },
    "Cas": {
     "vertices": 5,
@@ -3518,12 +3896,12 @@
    "Cen": {
     "vertices": 19,
     "unmatched": 0,
-    "edges": 14
+    "edges": 15
    },
    "Cep": {
     "vertices": 13,
     "unmatched": 0,
-    "edges": 9
+    "edges": 11
    },
    "Cet": {
     "vertices": 16,
@@ -3533,7 +3911,7 @@
    "Cha": {
     "vertices": 6,
     "unmatched": 0,
-    "edges": 3
+    "edges": 5
    },
    "Cir": {
     "vertices": 3,
@@ -3578,12 +3956,12 @@
    "Cyg": {
     "vertices": 10,
     "unmatched": 0,
-    "edges": 7
+    "edges": 8
    },
    "Del": {
     "vertices": 6,
     "unmatched": 0,
-    "edges": 3
+    "edges": 5
    },
    "Dor": {
     "vertices": 8,
@@ -3593,7 +3971,7 @@
    "Dra": {
     "vertices": 18,
     "unmatched": 0,
-    "edges": 13
+    "edges": 15
    },
    "Equ": {
     "vertices": 3,
@@ -3673,7 +4051,7 @@
    "Lup": {
     "vertices": 14,
     "unmatched": 0,
-    "edges": 10
+    "edges": 12
    },
    "Lyn": {
     "vertices": 7,
@@ -3683,7 +4061,7 @@
    "Lyr": {
     "vertices": 8,
     "unmatched": 0,
-    "edges": 3
+    "edges": 7
    },
    "Men": {
     "vertices": 4,
@@ -3698,7 +4076,7 @@
    "Mon": {
     "vertices": 10,
     "unmatched": 0,
-    "edges": 6
+    "edges": 8
    },
    "Mus": {
     "vertices": 7,
@@ -3708,7 +4086,7 @@
    "Nor": {
     "vertices": 5,
     "unmatched": 0,
-    "edges": 2
+    "edges": 4
    },
    "Oct": {
     "vertices": 4,
@@ -3718,7 +4096,7 @@
    "Oph": {
     "vertices": 20,
     "unmatched": 0,
-    "edges": 16
+    "edges": 17
    },
    "Ori": {
     "vertices": 28,
@@ -3753,7 +4131,7 @@
    "Psc": {
     "vertices": 25,
     "unmatched": 0,
-    "edges": 21
+    "edges": 23
    },
    "PsA": {
     "vertices": 10,
@@ -3788,7 +4166,7 @@
    "Sco": {
     "vertices": 15,
     "unmatched": 0,
-    "edges": 12
+    "edges": 13
    },
    "Scl": {
     "vertices": 4,
@@ -3803,7 +4181,7 @@
    "Ser": {
     "vertices": 6,
     "unmatched": 0,
-    "edges": 4
+    "edges": 5
    },
    "Sex": {
     "vertices": 4,
@@ -3833,7 +4211,7 @@
    "Tuc": {
     "vertices": 7,
     "unmatched": 0,
-    "edges": 4
+    "edges": 6
    },
    "UMa": {
     "vertices": 28,
@@ -3858,7 +4236,7 @@
    "Vol": {
     "vertices": 7,
     "unmatched": 0,
-    "edges": 4
+    "edges": 6
    },
    "Vul": {
     "vertices": 5,
@@ -3906,11 +4284,14 @@
  },
  "selection": {
   "counts": {
-   "union_le_6": 901,
-   "lineVertexStars_le_6": 734,
+   "union_all": 912,
+   "union_le_6": 911,
+   "lineVertexStars_all": 757,
+   "lineVertexStars_le_6": 756,
+   "lineExceptions_gt_6": 1,
    "union_le_3.5": 281,
-   "union_le_4.5": 686,
-   "union_le_5.5": 886
+   "union_le_4.5": 693,
+   "union_le_5.5": 896
   },
   "brightNotSelectable": [
    {
@@ -4601,7 +4982,7 @@
     "globe": null,
     "status": "no-coordinates",
     "source": "https://en.wikipedia.org/wiki/National_Astronomical_Observatory_of_Japan",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "sapporo",
@@ -4614,7 +4995,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Sapporo",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "nobeyama",
@@ -4627,7 +5008,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Nobeyama_radio_observatory",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "fuji",
@@ -4640,7 +5021,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Mount_Fuji",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "nishiharima",
@@ -4653,7 +5034,7 @@
     "globe": null,
     "status": "no-coordinates",
     "source": "https://en.wikipedia.org/wiki/Nishi-Harima_Astronomical_Observatory",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "ishigaki",
@@ -4666,7 +5047,7 @@
     "globe": null,
     "status": "no-coordinates",
     "source": "https://en.wikipedia.org/wiki/List_of_observatory_codes",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "chichijima",
@@ -4679,7 +5060,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Chichijima",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "quito",
@@ -4692,7 +5073,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Quito",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "maunakea",
@@ -4705,7 +5086,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Mauna_Kea",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "honolulu",
@@ -4718,7 +5099,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Honolulu",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "jantar-mantar-delhi",
@@ -4731,7 +5112,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Jantar_Mantar%2C_New_Delhi",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "merzouga",
@@ -4744,7 +5125,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Merzouga",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "everest",
@@ -4757,7 +5138,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Mount_Everest",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "beijing-observatory",
@@ -4770,7 +5151,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Beijing_Ancient_Observatory",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "new-york",
@@ -4783,7 +5164,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/New_York_City",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "greenwich",
@@ -4796,7 +5177,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Royal_Observatory%2C_Greenwich",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "paranal",
@@ -4809,7 +5190,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Paranal_Observatory",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "sydney-observatory",
@@ -4822,7 +5203,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Sydney_Observatory",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "ushuaia",
@@ -4835,7 +5216,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Ushuaia",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "point-nemo",
@@ -4848,7 +5229,7 @@
     "globe": null,
     "status": "no-coordinates",
     "source": "https://en.wikipedia.org/wiki/Pole_of_inaccessibility",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "syowa",
@@ -4861,7 +5242,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Syowa_Station_(Antarctica)",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "tromso",
@@ -4874,7 +5255,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Troms%C3%B8",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    },
    {
     "id": "yellowknife",
@@ -4887,7 +5268,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Yellowknife",
-    "fetchedAt": "2026-11-25T10:51:41.866Z"
+    "fetchedAt": "2026-11-25T11:01:50.786Z"
    }
   ]
  }

@@ -37,19 +37,31 @@
 {
  "-6": {
   "utc": "2026-12-21T08:04:06.439Z",
-  "measuredAltitude": -5.39
+  "of_date_aberr_noRefr": -6,
+  "of_date_aberr_normal": -5.39,
+  "of_date_noAberr_noRefr": -5.995,
+  "J2000_aberr_noRefr": -6.306
  },
  "-9": {
   "utc": "2026-12-21T08:20:04.787Z",
-  "measuredAltitude": -8.412
+  "of_date_aberr_noRefr": -9,
+  "of_date_aberr_normal": -8.412,
+  "of_date_noAberr_noRefr": -8.995,
+  "J2000_aberr_noRefr": -9.311
  },
  "-12": {
   "utc": "2026-12-21T08:35:48.916Z",
-  "measuredAltitude": -11.433
+  "of_date_aberr_noRefr": -12,
+  "of_date_aberr_normal": -11.433,
+  "of_date_noAberr_noRefr": -11.995,
+  "J2000_aberr_noRefr": -12.316
  },
  "-18": {
   "utc": "2026-12-21T09:06:42.346Z",
-  "measuredAltitude": -17.477
+  "of_date_aberr_noRefr": -18,
+  "of_date_aberr_normal": -17.477,
+  "of_date_noAberr_noRefr": -17.995,
+  "J2000_aberr_noRefr": -18.323
  }
 }
 ```
@@ -69,10 +81,18 @@
 }
 ```
 
-## ❌ 月の位置(観測者基準と地心基準)
+## ✅ 月の位置(観測者基準と地心基準)
 
 ```json
-"Not an instance of the Observer class: null"
+{
+ "topocentric_ra_hours_J2000": 3.2935,
+ "topocentric_dec_J2000": 23.3045,
+ "geocentric_ra_hours_J2000": 3.2927,
+ "geocentric_dec_J2000": 23.5028,
+ "parallaxShiftApproxDeg": 0.199,
+ "altitude_ofdate_normal": 78.39,
+ "azimuth_ofdate": 176.7
+}
 ```
 
 ## ✅ 金星・木星の等級と輝面比
@@ -148,8 +168,8 @@
 ```json
 {
  "calls": 10000,
- "totalMs": 16.4,
- "perCallMicroseconds": 1.64,
+ "totalMs": 16.6,
+ "perCallMicroseconds": 1.66,
  "checksum": -2806.9
 }
 ```
