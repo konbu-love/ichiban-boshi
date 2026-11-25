@@ -1,0 +1,41 @@
+name: mw-fix
+
+# 手動実行専用。Actions → mw-fix → Run workflow。
+# d3-celestial の mw.json(実データ)から、天の川の描画サンプルを作り直して検証し、docs/mwfix/ に保存する。
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  mw:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: d3-celestial を版固定で取得
+        run: npm install --no-save --prefix .audit-deps d3-celestial@0.7.35
+      - name: テスト(合成データでの判定ロジック)
+        run: node --test tests/mw.test.mjs
+      - name: 天の川サンプルを生成・検証(不合格でも結果は保存する)
+        run: |
+          mkdir -p docs/mwfix
+          set +e
+          node build/build-mw-samples.mjs \
+            --data-dir .audit-deps/node_modules/d3-celestial/data \
+            --out docs/mwfix \
+            --version "$(node -p "require('./.audit-deps/node_modules/d3-celestial/package.json').version")" \
+            > docs/mwfix/run-log.txt 2>&1
+          echo $? > docs/mwfix/run-exit.txt
+          tail -80 docs/mwfix/run-log.txt
+          exit 0
+      - name: 結果をコミット
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/mwfix
+          git commit -m "天の川サンプルの再生成と検証結果" || echo "変更なし"
+          git push || echo "pushに失敗(権限を確認)"
