@@ -1,0 +1,96 @@
+name: build-release
+
+# 手動実行専用。Actions → build-release → Run workflow。
+# 実データを描画用に変換し、位置計算モジュールとまとめて ZIP にして Release に載せる。
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: データとライブラリを取得(d3-celestialは版を固定)
+        run: npm install --no-save --prefix .audit-deps d3-celestial@0.7.35 astronomy-engine
+
+      - name: テスト(監査・変換)
+        run: node --test tests/audit.test.mjs tests/build.test.mjs
+
+      - name: テスト(位置計算。失敗しても ZIP は作り、結果を同梱する)
+        run: |
+          mkdir -p out
+          set +e
+          AUDIT_DEPS=.audit-deps node --test tests/sky.test.mjs > out/sky-test.txt 2>&1
+          echo $? > out/sky-test.exit
+          cat out/sky-test.txt
+          exit 0
+
+      - name: 実データを変換
+        run: |
+          node build/build-data.mjs \
+            --data-dir .audit-deps/node_modules/d3-celestial/data \
+            --out dist/ichiban-boshi-astro \
+            --version "$(node -p "require('./.audit-deps/node_modules/d3-celestial/package.json').version")"
+
+      - name: 一式をまとめる
+        run: |
+          D=dist/ichiban-boshi-astro
+          mkdir -p $D/src $D/lib $D/licenses $D/docs $D/reports
+          cp src/sky.mjs $D/src/
+          cp build/dist-README.md $D/README.md
+          cp docs/handoff/data-spec.md $D/docs/
+          cp dist/ichiban-boshi-astro/build-report.json $D/reports/ || true
+          cp docs/audit/audit-report.md $D/reports/ || true
+          cp out/sky-test.txt $D/reports/ || true
+          ls .audit-deps/node_modules/astronomy-engine
+          B=$(find .audit-deps/node_modules/astronomy-engine -name 'astronomy.browser.min.js' | head -1)
+          if [ -n "$B" ]; then cp "$B" $D/lib/; else echo "ブラウザ用ファイルが見つからない" > $D/lib/MISSING.txt; fi
+          for p in d3-celestial astronomy-engine; do
+            L=$(find .audit-deps/node_modules/$p -maxdepth 1 -iname 'LICENSE*' | head -1)
+            if [ -n "$L" ]; then cp "$L" $D/licenses/$p-$(basename "$L"); else echo "ライセンスファイルが見つからない" > $D/licenses/$p-MISSING.txt; fi
+          done
+          {
+            echo ""
+            echo "## 検証結果(このZIPを作った実行)"
+            echo "- 位置計算テストの終了コード: $(cat out/sky-test.exit)(0=すべて成功)"
+            echo "- 詳細: reports/sky-test.txt、reports/build-report.json"
+          } >> $D/README.md
+          (cd dist && zip -r ../ichiban-boshi-astro.zip ichiban-boshi-astro)
+          ls -l ichiban-boshi-astro.zip
+          unzip -l ichiban-boshi-astro.zip
+
+      - name: 結果を実行画面(Summary)に表示
+        run: |
+          echo '### 変換結果' >> "$GITHUB_STEP_SUMMARY"
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          cat dist/ichiban-boshi-astro/build-report.json >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          echo "位置計算テストの終了コード: $(cat out/sky-test.exit)" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: 結果をリポジトリに保存(docs/build/)
+        run: |
+          mkdir -p docs/build
+          cp dist/ichiban-boshi-astro/build-report.json docs/build/
+          cp out/sky-test.txt docs/build/
+          cp out/sky-test.exit docs/build/
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/build
+          git commit -m "変換結果とテスト結果を更新" || echo "変更なし"
+          git push || echo "pushに失敗(権限を確認)"
+
+      - name: Release にZIPを載せる
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "astro-data-${{ github.run_number }}" ichiban-boshi-astro.zip \
+            --title "天文データ一式 #${{ github.run_number }}" \
+            --notes "描画担当向けの天文データ・計算モジュール一式。中身と使い方は ZIP 内の README.md。"

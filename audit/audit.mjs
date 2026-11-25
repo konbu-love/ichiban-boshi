@@ -292,6 +292,22 @@ function dpSimplify(points, tol) {
   return points.filter((_, i) => keep[i]);
 }
 
+// 経度の折り返し(±180°)をまたぐ輪を連続化してから間引き、赤経0〜360°に直して返す。
+export function simplifyRing(ring, tol) {
+  const un = [];
+  let off = 0;
+  for (let i = 0; i < ring.length; i++) {
+    if (i > 0) {
+      const d = ring[i][0] + off - un[i - 1][0];
+      if (d > 180) off -= 360;
+      else if (d < -180) off += 360;
+    }
+    un.push([ring[i][0] + off, ring[i][1]]);
+  }
+  const s = dpSimplify(un, tol);
+  return s.map(([x, y]) => [round(((x % 360) + 360) % 360, 2), round(y, 2)]);
+}
+
 export function analyzeMilkyWay(fc, tolerances = [0.05, 0.1, 0.25]) {
   const features = [];
   let seamTouchVertices = 0;
@@ -499,22 +515,9 @@ function parseArgs(argv) {
   return a;
 }
 
-export async function runAudit(opts) {
-  const { dataDir, eps = 0.05 } = opts;
-  const s6 = readJson(dataDir, 'stars.6.json');
-  const s8 = readJson(dataDir, 'stars.8.json');
-  const stars6 = parseStars(s6.json);
-  const stars8 = parseStars(s8.json);
-  const magByHip = new Map(stars8.map((s) => [s.hip, s.mag]));
-  for (const s of stars6) if (!magByHip.has(s.hip)) magByHip.set(s.hip, s.mag);
-  const set8 = new Set(stars8.map((s) => s.hip));
-  const missingIn8 = stars6.filter((s) => !set8.has(s.hip)).length;
-
-  const nearest = buildMatcher(stars8.length ? stars8 : stars6);
-  const linesFc = readJson(dataDir, 'constellations.lines.json').json;
-  const namesRaw = readJson(dataDir, 'starnames.json').json;
-  // 判断方法: 明るさが近い(差0.5等未満)二重星は、元データ(starnames)で名前・ベイヤー符号が付く星が1つだけならそれを採用。
-  // 確認材料がなければ暫定的に明るい方。
+// 判断方法: 明るさが近い(差0.5等未満)二重星は、元データ(starnames)で名前・ベイヤー符号が付く星が1つだけならそれを採用。
+// 確認材料がなければ暫定的に明るい方(matchPolylines側の既定)。
+export function makeNamePicker(namesRaw) {
   const info = (hip) => {
     const v = namesRaw?.[hip] ?? namesRaw?.[String(hip)];
     if (!v || typeof v !== 'object') return {};
@@ -529,6 +532,24 @@ export async function runAudit(opts) {
     return null;
   };
   pick.describe = info;
+  return pick;
+}
+
+export async function runAudit(opts) {
+  const { dataDir, eps = 0.05 } = opts;
+  const s6 = readJson(dataDir, 'stars.6.json');
+  const s8 = readJson(dataDir, 'stars.8.json');
+  const stars6 = parseStars(s6.json);
+  const stars8 = parseStars(s8.json);
+  const magByHip = new Map(stars8.map((s) => [s.hip, s.mag]));
+  for (const s of stars6) if (!magByHip.has(s.hip)) magByHip.set(s.hip, s.mag);
+  const set8 = new Set(stars8.map((s) => s.hip));
+  const missingIn8 = stars6.filter((s) => !set8.has(s.hip)).length;
+
+  const nearest = buildMatcher(stars8.length ? stars8 : stars6);
+  const linesFc = readJson(dataDir, 'constellations.lines.json').json;
+  const namesRaw = readJson(dataDir, 'starnames.json').json;
+  const pick = makeNamePicker(namesRaw);
   const lines = matchPolylines(linesFc, nearest, eps, 6.0, pick);
 
   const names = analyzeNames(namesRaw, magByHip);

@@ -1,0 +1,166 @@
+{
+ "_comment": "地点座標。reviewed=falseは「種別(天文台・山頂・都市の代表点)の人による確認がまだ」の意味。",
+ "sites": {
+  "mitaka": {
+   "lat": 35.678322,
+   "lon": 139.537003,
+   "source": "国土地理院 住所検索API(東京都三鷹市大沢2-21-1、番地レベル)",
+   "kind": "observatory",
+   "reviewed": false
+  },
+  "sapporo": {
+   "lat": 43.061944,
+   "lon": 141.354444,
+   "source": "英語版Wikipedia(MediaWiki API) 「Sapporo」",
+   "kind": "city",
+   "reviewed": false
+  },
+  "nobeyama": {
+   "lat": 35.9417,
+   "lon": 138.4758,
+   "source": "英語版Wikipedia(MediaWiki API) 「Nobeyama radio observatory」",
+   "kind": "observatory",
+   "reviewed": false
+  },
+  "fuji": {
+   "lat": 35.360833,
+   "lon": 138.7275,
+   "source": "英語版Wikipedia(MediaWiki API) 「Mount Fuji」",
+   "kind": "summit",
+   "reviewed": false
+  },
+  "nishiharima": {
+   "lat": 35.032677,
+   "lon": 134.339218,
+   "source": "国土地理院 住所検索API(兵庫県佐用町西河内の町字レベルの代表点。山頂の施設位置ではなく数kmずれうる)",
+   "kind": "observatory",
+   "reviewed": false
+  },
+  "ishigaki": {
+   "lat": 24.373583,
+   "lon": 124.139389,
+   "source": "日本語版Wikipedia「石垣島天文台」(前勢岳山頂)",
+   "kind": "observatory",
+   "reviewed": false
+  },
+  "chichijima": {
+   "lat": 27.066667,
+   "lon": 142.208333,
+   "source": "英語版Wikipedia(MediaWiki API) 「Chichijima」",
+   "kind": "island",
+   "reviewed": false
+  },
+  "quito": {
+   "lat": -0.22,
+   "lon": -78.5125,
+   "source": "英語版Wikipedia(MediaWiki API) 「Quito」",
+   "kind": "city",
+   "reviewed": false
+  },
+  "maunakea": {
+   "lat": 19.820556,
+   "lon": -155.468056,
+   "source": "英語版Wikipedia(MediaWiki API) 「Mauna Kea」",
+   "kind": "summit",
+   "reviewed": false
+  },
+  "honolulu": {
+   "lat": 21.3,
+   "lon": -157.85,
+   "source": "英語版Wikipedia(MediaWiki API) 「Honolulu」",
+   "kind": "city",
+   "reviewed": false
+  },
+  "jantar-mantar-delhi": {
+   "lat": 28.6271,
+   "lon": 77.2164,
+   "source": "英語版Wikipedia(MediaWiki API) 「Jantar Mantar, New Delhi」",
+   "kind": "observatory",
+   "reviewed": false
+  },
+  "merzouga": {
+   "lat": 31.099167,
+   "lon": -4.011667,
+   "source": "英語版Wikipedia(MediaWiki API) 「Merzouga」",
+   "kind": "desert-village",
+   "reviewed": false
+  },
+  "everest": {
+   "lat": 27.988333,
+   "lon": 86.925278,
+   "source": "英語版Wikipedia(MediaWiki API) 「Mount Everest」",
+   "kind": "summit",
+   "reviewed": false
+  },
+  "beijing-observatory": {
+   "lat": 39.9061,
+   "lon": 116.4281,
+   "source": "英語版Wikipedia(MediaWiki API) 「Beijing Ancient Observatory」",
+   "kind": "observatory",
+   "reviewed": false
+  },
+  "new-york": {
+   "lat": 40.7128,
+   "lon": -74.0061,
+   "source": "英語版Wikipedia(MediaWiki API) 「New York City」",
+   "kind": "city",
+   "reviewed": false
+  },
+  "greenwich": {
+   "lat": 51.477,
+   "lon": -0.0147,
+   "source": "英語版Wikipedia(MediaWiki API) 「Royal Observatory, Greenwich」",
+   "kind": "observatory",
+   "reviewed": false
+  },
+  "paranal": {
+   "lat": -24.627222,
+   "lon": -70.404167,
+   "source": "英語版Wikipedia(MediaWiki API) 「Paranal Observatory」",
+   "kind": "observatory",
+   "reviewed": false
+  },
+  "sydney-observatory": {
+   "lat": -33.8596,
+   "lon": 151.2047,
+   "source": "英語版Wikipedia(MediaWiki API) 「Sydney Observatory」",
+   "kind": "observatory",
+   "reviewed": false
+  },
+  "ushuaia": {
+   "lat": -54.807222,
+   "lon": -68.308056,
+   "source": "英語版Wikipedia(MediaWiki API) 「Ushuaia」",
+   "kind": "city",
+   "reviewed": false
+  },
+  "point-nemo": {
+   "lat": -48.8767,
+   "lon": -123.3933,
+   "source": "英語版Wikipedia「Point Nemo」(48°52.6′S 123°23.6′W)",
+   "kind": "ocean-point",
+   "reviewed": false
+  },
+  "syowa": {
+   "lat": -69.004122,
+   "lon": 39.581836,
+   "source": "英語版Wikipedia(MediaWiki API) 「Syowa Station (Antarctica)」",
+   "kind": "station",
+   "reviewed": false
+  },
+  "tromso": {
+   "lat": 69.6517,
+   "lon": 18.9556,
+   "source": "英語版Wikipedia(MediaWiki API) 「Tromsø」",
+   "kind": "city",
+   "reviewed": false
+  },
+  "yellowknife": {
+   "lat": 62.453611,
+   "lon": -114.37,
+   "source": "英語版Wikipedia(MediaWiki API) 「Yellowknife」",
+   "kind": "city",
+   "reviewed": false
+  }
+ }
+}
