@@ -1,0 +1,126 @@
+{
+ "version": "0.7.35",
+ "stars": {
+  "total": 5045,
+  "le6": 5044,
+  "exceptions": [
+   {
+    "hip": 10826,
+    "mag": 6.47
+   }
+  ]
+ },
+ "selectable": {
+  "total": 919,
+  "promotedBright": [
+   32759,
+   32768,
+   36377,
+   45080,
+   46701,
+   48002,
+   56561
+  ],
+  "namedLe6": 493,
+  "lineStars": 757
+ },
+ "lines": {
+  "constellations": 88,
+  "edges": 735,
+  "ambiguousVertices": 24,
+  "unconfirmed": [
+   {
+    "feature": "Dra",
+    "vertex": 3,
+    "chosen": 85829,
+    "basis": "brightest"
+   },
+   {
+    "feature": "Tuc",
+    "vertex": 2,
+    "chosen": 2484,
+    "basis": "brightest"
+   }
+  ]
+ },
+ "names": {
+  "selectableWithName": 494,
+  "selectableWithJa": 272,
+  "selectableConstellationUnknown": 4
+ },
+ "constellations": {
+  "total": 88,
+  "withJa": 88
+ },
+ "milkyWay": {
+  "layers": 5,
+  "vertices": 2662
+ },
+ "sites": {
+  "total": 23,
+  "unreviewedCoords": [
+   "mitaka",
+   "sapporo",
+   "nobeyama",
+   "fuji",
+   "nishiharima",
+   "ishigaki",
+   "chichijima",
+   "quito",
+   "maunakea",
+   "honolulu",
+   "jantar-mantar-delhi",
+   "merzouga",
+   "everest",
+   "beijing-observatory",
+   "new-york",
+   "greenwich",
+   "paranal",
+   "sydney-observatory",
+   "ushuaia",
+   "point-nemo",
+   "syowa",
+   "tromso",
+   "yellowknife"
+  ]
+ },
+ "sizes": {
+  "stars.json": {
+   "bytes": 175824,
+   "gzipBytes": 73425
+  },
+  "selectable.json": {
+   "bytes": 5592,
+   "gzipBytes": 2425
+  },
+  "names.json": {
+   "bytes": 42237,
+   "gzipBytes": 11382
+  },
+  "starCons.json": {
+   "bytes": 14772,
+   "gzipBytes": 3999
+  },
+  "lines.json": {
+   "bytes": 11120,
+   "gzipBytes": 4266
+  },
+  "constellations.json": {
+   "bytes": 7190,
+   "gzipBytes": 2433
+  },
+  "mw.json": {
+   "bytes": 41181,
+   "gzipBytes": 14978
+  },
+  "sites.json": {
+   "bytes": 6369,
+   "gzipBytes": 1838
+  },
+  "credits.json": {
+   "bytes": 947,
+   "gzipBytes": 561
+  }
+ },
+ "problems": []
+}
