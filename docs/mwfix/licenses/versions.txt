@@ -1,0 +1,2 @@
+d3-celestial 0.7.35 / license: BSD-3-Clause
+astronomy-engine 2.1.19 / license: MIT
