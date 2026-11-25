@@ -1,0 +1,28 @@
+{
+  "_comment": "初期版の23地点の種(座標は入れない)。座標はWikipedia APIから機械取得した候補を人が確認する。暗さクラスはゲーム設定の仮値で、文献値ではない。極点(北極点・南極点)は後日追加。",
+  "sites": [
+    { "id": "mitaka", "name_ja": "東京(国立天文台三鷹)", "coord_kind": "observatory", "wikipedia_title": "National Astronomical Observatory of Japan", "tz": "Asia/Tokyo", "dark_class_provisional": "A", "landscape": "city" },
+    { "id": "sapporo", "name_ja": "札幌", "coord_kind": "city", "wikipedia_title": "Sapporo", "tz": "Asia/Tokyo", "dark_class_provisional": "B", "landscape": "city" },
+    { "id": "nobeyama", "name_ja": "野辺山", "coord_kind": "observatory", "wikipedia_title": "Nobeyama Radio Observatory", "tz": "Asia/Tokyo", "dark_class_provisional": "D", "landscape": "mountain" },
+    { "id": "fuji", "name_ja": "富士山頂", "coord_kind": "summit", "wikipedia_title": "Mount Fuji", "tz": "Asia/Tokyo", "dark_class_provisional": "E", "landscape": "mountain" },
+    { "id": "nishiharima", "name_ja": "西はりま天文台", "coord_kind": "observatory", "wikipedia_title": "Nishi-Harima Astronomical Observatory", "tz": "Asia/Tokyo", "dark_class_provisional": "C", "landscape": "mountain" },
+    { "id": "ishigaki", "name_ja": "石垣島天文台", "coord_kind": "observatory", "wikipedia_title": "Ishigakijima Astronomical Observatory", "tz": "Asia/Tokyo", "dark_class_provisional": "C", "landscape": "sea" },
+    { "id": "chichijima", "name_ja": "小笠原・父島", "coord_kind": "island", "wikipedia_title": "Chichijima", "tz": "Asia/Tokyo", "dark_class_provisional": "D", "landscape": "sea" },
+    { "id": "quito", "name_ja": "キト(赤道直下)", "coord_kind": "city", "wikipedia_title": "Quito", "tz": "America/Guayaquil", "dark_class_provisional": "B", "landscape": "city" },
+    { "id": "maunakea", "name_ja": "マウナケア", "coord_kind": "summit", "wikipedia_title": "Mauna Kea", "tz": "Pacific/Honolulu", "dark_class_provisional": "E", "landscape": "mountain" },
+    { "id": "honolulu", "name_ja": "ホノルル", "coord_kind": "city", "wikipedia_title": "Honolulu", "tz": "Pacific/Honolulu", "dark_class_provisional": "B", "landscape": "sea" },
+    { "id": "jantar-mantar-delhi", "name_ja": "ジャンタル・マンタル(ニューデリー)", "coord_kind": "observatory", "wikipedia_title": "Jantar Mantar, New Delhi", "tz": "Asia/Kolkata", "dark_class_provisional": "A", "landscape": "city" },
+    { "id": "merzouga", "name_ja": "メルズーガ(サハラの砂丘)", "coord_kind": "desert-village", "wikipedia_title": "Merzouga", "tz": "Africa/Casablanca", "dark_class_provisional": "D", "landscape": "desert" },
+    { "id": "everest", "name_ja": "エベレスト山頂", "coord_kind": "summit", "wikipedia_title": "Mount Everest", "tz": "Asia/Kathmandu", "dark_class_provisional": "E", "landscape": "mountain" },
+    { "id": "beijing-observatory", "name_ja": "北京古観象台", "coord_kind": "observatory", "wikipedia_title": "Beijing Ancient Observatory", "tz": "Asia/Shanghai", "dark_class_provisional": "A", "landscape": "city" },
+    { "id": "new-york", "name_ja": "ニューヨーク", "coord_kind": "city", "wikipedia_title": "New York City", "tz": "America/New_York", "dark_class_provisional": "A", "landscape": "city" },
+    { "id": "greenwich", "name_ja": "グリニッジ天文台", "coord_kind": "observatory", "wikipedia_title": "Royal Observatory, Greenwich", "tz": "Europe/London", "dark_class_provisional": "B", "landscape": "city" },
+    { "id": "paranal", "name_ja": "パラナル天文台", "coord_kind": "observatory", "wikipedia_title": "Paranal Observatory", "tz": "America/Santiago", "dark_class_provisional": "E", "landscape": "desert" },
+    { "id": "sydney-observatory", "name_ja": "シドニー天文台", "coord_kind": "observatory", "wikipedia_title": "Sydney Observatory", "tz": "Australia/Sydney", "dark_class_provisional": "B", "landscape": "city" },
+    { "id": "ushuaia", "name_ja": "ウシュアイア", "coord_kind": "city", "wikipedia_title": "Ushuaia", "tz": "America/Argentina/Ushuaia", "dark_class_provisional": "C", "landscape": "sea" },
+    { "id": "point-nemo", "name_ja": "ポイント・ネモ(海上)", "coord_kind": "ocean-point", "wikipedia_title": "Point Nemo", "tz": "UTC", "dark_class_provisional": "E", "landscape": "sea" },
+    { "id": "syowa", "name_ja": "昭和基地", "coord_kind": "station", "wikipedia_title": "Syowa Station", "tz": "Antarctica/Syowa", "dark_class_provisional": "E", "landscape": "polar" },
+    { "id": "tromso", "name_ja": "トロムソ", "coord_kind": "city", "wikipedia_title": "Tromsø", "tz": "Europe/Oslo", "dark_class_provisional": "C", "landscape": "snowfield" },
+    { "id": "yellowknife", "name_ja": "イエローナイフ", "coord_kind": "city", "wikipedia_title": "Yellowknife", "tz": "America/Edmonton", "dark_class_provisional": "C", "landscape": "snowfield" }
+  ]
+}
