@@ -1,6 +1,6 @@
 {
  "meta": {
-  "generatedAt": "2026-11-25T11:01:50.787Z",
+  "generatedAt": "2026-11-25T11:07:44.098Z",
   "d3CelestialVersion": "0.7.35",
   "eps": 0.05
  },
@@ -93,7 +93,23 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 80047,
+      "mag": 4.68,
+      "bayer": "δ1",
+      "desig": "δ1"
+     },
+     {
+      "hip": 80057,
+      "mag": 5.27,
+      "bayer": "δ2",
+      "desig": "δ2"
+     }
+    ]
    },
    {
     "feature": "Boo",
@@ -118,7 +134,23 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 74666,
+      "mag": 3.46,
+      "name": "Thiba",
+      "bayer": "δ",
+      "flam": "49",
+      "desig": "δ"
+     },
+     {
+      "hip": 74674,
+      "mag": 7.8
+     }
+    ]
    },
    {
     "feature": "Boo",
@@ -143,7 +175,26 @@
      }
     ],
     "chosenIsNearest": false,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 69483,
+      "mag": 4.53,
+      "name": "Asellus Tertius",
+      "bayer": "κ2",
+      "flam": "17",
+      "desig": "κ2"
+     },
+     {
+      "hip": 69481,
+      "mag": 6.62,
+      "bayer": "κ1",
+      "flam": "17",
+      "desig": "κ1"
+     }
+    ]
    },
    {
     "feature": "Cnc",
@@ -168,7 +219,26 @@
      }
     ],
     "chosenIsNearest": false,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 43103,
+      "mag": 4.03,
+      "name": "Zubanah",
+      "bayer": "ι",
+      "flam": "48",
+      "desig": "ι"
+     },
+     {
+      "hip": 43100,
+      "mag": 6.58,
+      "bayer": "ι",
+      "flam": "48",
+      "desig": "ι"
+     }
+    ]
    },
    {
     "feature": "CVn",
@@ -193,7 +263,26 @@
      }
     ],
     "chosenIsNearest": false,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 63125,
+      "mag": 2.89,
+      "name": "Cor Caroli",
+      "bayer": "α2",
+      "flam": "12",
+      "desig": "α2"
+     },
+     {
+      "hip": 63121,
+      "mag": 5.61,
+      "bayer": "α1",
+      "flam": "12",
+      "desig": "α1"
+     }
+    ]
    },
    {
     "feature": "Car",
@@ -218,7 +307,21 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 53253,
+      "mag": 3.78,
+      "bayer": "u",
+      "desig": "u"
+     },
+     {
+      "hip": 53231,
+      "mag": 6.26
+     }
+    ]
    },
    {
     "feature": "Cen",
@@ -243,7 +346,25 @@
      }
     ],
     "chosenIsNearest": false,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 71683,
+      "mag": -0.01,
+      "name": "Rigil Kentaurus",
+      "bayer": "α1",
+      "desig": "α1"
+     },
+     {
+      "hip": 71681,
+      "mag": 1.35,
+      "name": "Toliman",
+      "bayer": "α2",
+      "desig": "α2"
+     }
+    ]
    },
    {
     "feature": "Cep",
@@ -268,7 +389,25 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 110991,
+      "mag": 4.07,
+      "bayer": "δ",
+      "flam": "27",
+      "desig": "δ"
+     },
+     {
+      "hip": 110988,
+      "mag": 6.31,
+      "bayer": "δ",
+      "flam": "27",
+      "desig": "δ"
+     }
+    ]
    },
    {
     "feature": "Cha",
@@ -293,7 +432,22 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 58484,
+      "mag": 4.88,
+      "bayer": "ε",
+      "desig": "ε"
+     },
+     {
+      "hip": 58520,
+      "mag": 6.58,
+      "desig": "DX"
+     }
+    ]
    },
    {
     "feature": "Cyg",
@@ -318,7 +472,26 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 95947,
+      "mag": 3.05,
+      "name": "Albireo",
+      "bayer": "β1",
+      "flam": "6",
+      "desig": "β1"
+     },
+     {
+      "hip": 95951,
+      "mag": 5.12,
+      "bayer": "β2",
+      "flam": "6",
+      "desig": "β2"
+     }
+    ]
    },
    {
     "feature": "Del",
@@ -343,7 +516,26 @@
      }
     ],
     "chosenIsNearest": false,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 102532,
+      "mag": 4.27,
+      "name": "Al Salib",
+      "bayer": "γ2",
+      "flam": "12",
+      "desig": "γ2"
+     },
+     {
+      "hip": 102531,
+      "mag": 5.15,
+      "bayer": "γ1",
+      "flam": "12",
+      "desig": "γ1"
+     }
+    ]
    },
    {
     "feature": "Dra",
@@ -368,7 +560,27 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": true
+    "needsReview": true,
+    "basis": "brightest",
+    "confirmed": false,
+    "candidates": [
+     {
+      "hip": 85829,
+      "mag": 4.86,
+      "name": "Kuma",
+      "bayer": "ν2",
+      "flam": "25",
+      "desig": "ν2"
+     },
+     {
+      "hip": 85819,
+      "mag": 4.89,
+      "name": "Kuma",
+      "bayer": "ν1",
+      "flam": "24",
+      "desig": "ν1"
+     }
+    ]
    },
    {
     "feature": "Lup",
@@ -393,7 +605,21 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 74911,
+      "mag": 4.27,
+      "bayer": "μ",
+      "desig": "μ"
+     },
+     {
+      "hip": 74915,
+      "mag": 6.87
+     }
+    ]
    },
    {
     "feature": "Lyr",
@@ -418,7 +644,26 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 91971,
+      "mag": 4.34,
+      "name": "Nasr Alwaki",
+      "bayer": "ζ1",
+      "flam": "6",
+      "desig": "ζ1"
+     },
+     {
+      "hip": 91973,
+      "mag": 5.73,
+      "bayer": "ζ2",
+      "flam": "7",
+      "desig": "ζ2"
+     }
+    ]
    },
    {
     "feature": "Lyr",
@@ -443,7 +688,26 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 91971,
+      "mag": 4.34,
+      "name": "Nasr Alwaki",
+      "bayer": "ζ1",
+      "flam": "6",
+      "desig": "ζ1"
+     },
+     {
+      "hip": 91973,
+      "mag": 5.73,
+      "bayer": "ζ2",
+      "flam": "7",
+      "desig": "ζ2"
+     }
+    ]
    },
    {
     "feature": "Lyr",
@@ -468,7 +732,26 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 91971,
+      "mag": 4.34,
+      "name": "Nasr Alwaki",
+      "bayer": "ζ1",
+      "flam": "6",
+      "desig": "ζ1"
+     },
+     {
+      "hip": 91973,
+      "mag": 5.73,
+      "bayer": "ζ2",
+      "flam": "7",
+      "desig": "ζ2"
+     }
+    ]
    },
    {
     "feature": "Mon",
@@ -493,7 +776,25 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 30419,
+      "mag": 4.39,
+      "bayer": "ε",
+      "flam": "8",
+      "desig": "ε"
+     },
+     {
+      "hip": 30422,
+      "mag": 6.72,
+      "bayer": "ε",
+      "flam": "8",
+      "desig": "ε"
+     }
+    ]
    },
    {
     "feature": "Nor",
@@ -518,7 +819,21 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 80582,
+      "mag": 4.46,
+      "bayer": "ε",
+      "desig": "ε"
+     },
+     {
+      "hip": 80579,
+      "mag": 6.69
+     }
+    ]
    },
    {
     "feature": "Oph",
@@ -548,7 +863,26 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 80473,
+      "mag": 4.57,
+      "bayer": "ρ",
+      "flam": "5",
+      "desig": "ρ"
+     },
+     {
+      "hip": 80461,
+      "mag": 6.75
+     },
+     {
+      "hip": 80474,
+      "mag": 7.27
+     }
+    ]
    },
    {
     "feature": "Psc",
@@ -573,7 +907,26 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 5737,
+      "mag": 5.21,
+      "name": "Revati",
+      "bayer": "ζ",
+      "flam": "86",
+      "desig": "ζ"
+     },
+     {
+      "hip": 5743,
+      "mag": 6.44,
+      "bayer": "ζ",
+      "flam": "86",
+      "desig": "ζ"
+     }
+    ]
    },
    {
     "feature": "Sco",
@@ -598,7 +951,26 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 78820,
+      "mag": 2.56,
+      "name": "Acrab",
+      "bayer": "β1",
+      "flam": "8",
+      "desig": "β1"
+     },
+     {
+      "hip": 78821,
+      "mag": 4.9,
+      "bayer": "β2",
+      "flam": "8",
+      "desig": "β2"
+     }
+    ]
    },
    {
     "feature": "Ser",
@@ -623,7 +995,26 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": true
+    "needsReview": true,
+    "basis": "name",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 92946,
+      "mag": 4.62,
+      "name": "Alya",
+      "bayer": "θ1",
+      "flam": "63",
+      "desig": "θ1"
+     },
+     {
+      "hip": 92951,
+      "mag": 4.98,
+      "bayer": "θ2",
+      "flam": "63",
+      "desig": "θ2"
+     }
+    ]
    },
    {
     "feature": "Tuc",
@@ -648,7 +1039,23 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": true
+    "needsReview": true,
+    "basis": "brightest",
+    "confirmed": false,
+    "candidates": [
+     {
+      "hip": 2484,
+      "mag": 4.36,
+      "bayer": "β1",
+      "desig": "β1"
+     },
+     {
+      "hip": 2487,
+      "mag": 4.53,
+      "bayer": "β2",
+      "desig": "β2"
+     }
+    ]
    },
    {
     "feature": "Vol",
@@ -673,7 +1080,23 @@
      }
     ],
     "chosenIsNearest": true,
-    "needsReview": false
+    "needsReview": false,
+    "basis": "brightest",
+    "confirmed": true,
+    "candidates": [
+     {
+      "hip": 34481,
+      "mag": 3.78,
+      "bayer": "γ2",
+      "desig": "γ2"
+     },
+     {
+      "hip": 34473,
+      "mag": 5.68,
+      "bayer": "γ1",
+      "desig": "γ1"
+     }
+    ]
    }
   ],
   "faint": [
@@ -4982,7 +5405,7 @@
     "globe": null,
     "status": "no-coordinates",
     "source": "https://en.wikipedia.org/wiki/National_Astronomical_Observatory_of_Japan",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "sapporo",
@@ -4995,7 +5418,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Sapporo",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "nobeyama",
@@ -5008,7 +5431,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Nobeyama_radio_observatory",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "fuji",
@@ -5021,7 +5444,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Mount_Fuji",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "nishiharima",
@@ -5034,7 +5457,7 @@
     "globe": null,
     "status": "no-coordinates",
     "source": "https://en.wikipedia.org/wiki/Nishi-Harima_Astronomical_Observatory",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "ishigaki",
@@ -5047,7 +5470,7 @@
     "globe": null,
     "status": "no-coordinates",
     "source": "https://en.wikipedia.org/wiki/List_of_observatory_codes",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "chichijima",
@@ -5060,7 +5483,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Chichijima",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "quito",
@@ -5073,7 +5496,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Quito",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "maunakea",
@@ -5086,7 +5509,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Mauna_Kea",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "honolulu",
@@ -5099,7 +5522,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Honolulu",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "jantar-mantar-delhi",
@@ -5112,7 +5535,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Jantar_Mantar%2C_New_Delhi",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "merzouga",
@@ -5125,7 +5548,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Merzouga",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "everest",
@@ -5138,7 +5561,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Mount_Everest",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "beijing-observatory",
@@ -5151,7 +5574,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Beijing_Ancient_Observatory",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "new-york",
@@ -5164,7 +5587,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/New_York_City",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "greenwich",
@@ -5177,7 +5600,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Royal_Observatory%2C_Greenwich",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "paranal",
@@ -5190,7 +5613,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Paranal_Observatory",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "sydney-observatory",
@@ -5203,7 +5626,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Sydney_Observatory",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "ushuaia",
@@ -5216,7 +5639,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Ushuaia",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "point-nemo",
@@ -5229,7 +5652,7 @@
     "globe": null,
     "status": "no-coordinates",
     "source": "https://en.wikipedia.org/wiki/Pole_of_inaccessibility",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "syowa",
@@ -5242,7 +5665,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Syowa_Station_(Antarctica)",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "tromso",
@@ -5255,7 +5678,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Troms%C3%B8",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    },
    {
     "id": "yellowknife",
@@ -5268,7 +5691,7 @@
     "globe": "earth",
     "status": "ok",
     "source": "https://en.wikipedia.org/wiki/Yellowknife",
-    "fetchedAt": "2026-11-25T11:01:50.786Z"
+    "fetchedAt": "2026-11-25T11:07:44.097Z"
    }
   ]
  }

@@ -168,8 +168,8 @@
 ```json
 {
  "calls": 10000,
- "totalMs": 16.6,
- "perCallMicroseconds": 1.66,
+ "totalMs": 16.5,
+ "perCallMicroseconds": 1.65,
  "checksum": -2806.9
 }
 ```
