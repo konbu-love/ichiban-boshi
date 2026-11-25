@@ -104,18 +104,35 @@ test('最近傍検索: 負の経度・継ぎ目付近・曖昧・星なしを正
   assert.ok(!none.best || none.best.sep > 0.5);
 });
 
-test('星座線の突き合わせ: 一致・曖昧・一致なし・暗い星・辺の生成', () => {
+test('星座線の突き合わせ: 一番明るい星を採用・暗い星も例外として残す・辺の生成', () => {
   const { stars8, lines } = makeSynthetic();
   const nearest = buildMatcher(parseStars(stars8));
   const m = matchPolylines(lines, nearest, 0.05, 6.0);
   assert.equal(m.vertices, 6);
-  assert.deepEqual([...m.hipSet].sort((a, b) => a - b), [1, 2, 3, 5]);
+  assert.equal(m.hipSet.size, 5); // 1,2,3,5 と 6か7(同等なので近い方)
+  for (const h of [1, 2, 3, 5]) assert.ok(m.hipSet.has(h));
   assert.equal(m.ambiguous.length, 1);
+  assert.equal(m.ambiguous[0].others.length, 1);
+  assert.equal(m.ambiguous[0].needsReview, true); // 等級差0.5未満
   assert.equal(m.unmatched.length, 1);
-  assert.equal(m.faint.length, 1);
+  assert.equal(m.faint.length, 1); // HIP 5 (6.5等) は線の構成星として残す
   assert.equal(m.faint[0].hip, 5);
   assert.deepEqual(m.edges.AAA, [[1, 2], [2, 3]]);
-  assert.deepEqual(m.edges.BBB, []); // 一致した頂点が連続しないので辺はできない
+  assert.equal(m.edges.BBB.length, 1); // 5 -> 6or7 の辺。一致なしの頂点の先へは延ばさない
+  assert.equal(m.edges.BBB[0][0], 5);
+});
+
+test('明るい方を採用: 二星のうち暗い方が近くても明るい方を選ぶ', () => {
+  const stars = [
+    { type: 'Feature', id: 10, properties: { mag: 5.6 }, geometry: { type: 'Point', coordinates: [40, 10] } },
+    { type: 'Feature', id: 11, properties: { mag: 2.9 }, geometry: { type: 'Point', coordinates: [40.005, 10] } },
+  ];
+  const nearest = buildMatcher(parseStars({ type: 'FeatureCollection', features: stars }));
+  const fc = { type: 'FeatureCollection', features: [{ type: 'Feature', id: 'X', properties: {}, geometry: { type: 'LineString', coordinates: [[40, 10], [41, 10]] } }] };
+  const m = matchPolylines(fc, nearest, 0.05, 6.0);
+  assert.deepEqual([...m.hipSet], [11]);
+  assert.equal(m.ambiguous[0].chosenIsNearest, false);
+  assert.equal(m.ambiguous[0].needsReview, false);
 });
 
 test('星の名前: 固有名・日本語キー・6.0等以下の固有名の数', () => {
@@ -207,8 +224,10 @@ test('監査の一括実行とMarkdown出力(合成データ)', async () => {
   const rep = await runAudit({ dataDir: dir, eps: 0.05, sites: seedPath, version: 'synthetic' });
   assert.equal(rep.stars8.count, 300);
   assert.equal(rep.stars6.allIn8, true);
-  assert.equal(rep.lines.uniqueMatchedHip, 4);
-  assert.equal(rep.selection.counts.union_le_6, 3); // 線: 1,2,3 / 名前: 1,3 / 5は6.5等で除外
+  assert.equal(rep.lines.uniqueMatchedHip, 5);
+  assert.equal(rep.selection.counts.union_le_6, 4); // 線: 1,2,3,6or7 / 名前: 1,3
+  assert.equal(rep.selection.counts.union_all, 5); // HIP 5 (6.5等) は線の構成星として例外で残る
+  assert.equal(rep.selection.counts.lineExceptions_gt_6, 1);
   assert.equal(rep.selection.counts['union_le_3.5'], 2); // HIP 1,2
   assert.deepEqual(rep.selection.brightNotSelectable, []);
   assert.equal(rep.asterisms[0].matchedHip, 2);

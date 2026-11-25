@@ -52,13 +52,22 @@ test('API名の存在確認', () => Object.fromEntries(expected.map((n) => [n, t
 const obs = new Astronomy.Observer(35.0, 139.0, 0);
 const start = new Date(Date.UTC(2026, 11, 21, 6, 0, 0)); // 2026-12-21 15:00 JST
 test('太陽が-12°になる時刻の探索と検算', () => {
+  // SearchAltitude は「天体の中心・大気差なし」(公式ドキュメント)。検算を条件違いで複数回おこない、ずれの原因を切り分ける。
   const found = {};
   for (const alt of [-6, -9, -12, -18]) {
     const t = Astronomy.SearchAltitude(Astronomy.Body.Sun, obs, -1, start, 1, alt);
     if (!t) { found[alt] = null; continue; }
-    const eq = Astronomy.Equator(Astronomy.Body.Sun, t, obs, true, true);
-    const hor = Astronomy.Horizon(t, obs, eq.ra, eq.dec, 'normal');
-    found[alt] = { utc: t.date.toISOString(), measuredAltitude: Number(hor.altitude.toFixed(3)) };
+    const m = (ofdate, aberr, refr) => {
+      const eq = Astronomy.Equator(Astronomy.Body.Sun, t, obs, ofdate, aberr);
+      return Number(Astronomy.Horizon(t, obs, eq.ra, eq.dec, refr).altitude.toFixed(3));
+    };
+    found[alt] = {
+      utc: t.date.toISOString(),
+      of_date_aberr_noRefr: m(true, true, null),
+      of_date_aberr_normal: m(true, true, 'normal'),
+      of_date_noAberr_noRefr: m(true, false, null),
+      J2000_aberr_noRefr: m(false, true, null),
+    };
   }
   return found;
 });
@@ -95,16 +104,20 @@ test('J2000座標の扱い(北極星で比較)', () => {
 // 4) 月: 観測者基準(視差込み)と地心の差
 test('月の位置(観測者基準と地心基準)', () => {
   const t = Astronomy.MakeTime(new Date(Date.UTC(2026, 11, 21, 12, 0, 0)));
-  const topo = Astronomy.Equator(Astronomy.Body.Moon, t, obs, true, true);
-  const geo = Astronomy.Equator(Astronomy.Body.Moon, t, null, true, true);
-  const hor = Astronomy.Horizon(t, obs, topo.ra, topo.dec, 'normal');
-  const dRa = (topo.ra - geo.ra) * 15;
+  // Equator の observer は null 不可。地心位置は GeoVector(J2000) から求め、観測者基準も J2000 で比べる。
+  const topo = Astronomy.Equator(Astronomy.Body.Moon, t, obs, false, true);
+  const geoEq = Astronomy.EquatorFromVector(Astronomy.GeoVector(Astronomy.Body.Moon, t, true));
+  const topoOfDate = Astronomy.Equator(Astronomy.Body.Moon, t, obs, true, true);
+  const hor = Astronomy.Horizon(t, obs, topoOfDate.ra, topoOfDate.dec, 'normal');
+  const dRa = (topo.ra - geoEq.ra) * 15;
   return {
-    topocentric_ra_hours: Number(topo.ra.toFixed(4)),
-    topocentric_dec: Number(topo.dec.toFixed(4)),
-    parallaxShiftApproxDeg: Number(Math.hypot(dRa * Math.cos((topo.dec * Math.PI) / 180), topo.dec - geo.dec).toFixed(3)),
-    altitude: Number(hor.altitude.toFixed(2)),
-    azimuth: Number(hor.azimuth.toFixed(2)),
+    topocentric_ra_hours_J2000: Number(topo.ra.toFixed(4)),
+    topocentric_dec_J2000: Number(topo.dec.toFixed(4)),
+    geocentric_ra_hours_J2000: Number(geoEq.ra.toFixed(4)),
+    geocentric_dec_J2000: Number(geoEq.dec.toFixed(4)),
+    parallaxShiftApproxDeg: Number(Math.hypot(dRa * Math.cos((topo.dec * Math.PI) / 180), topo.dec - geoEq.dec).toFixed(3)),
+    altitude_ofdate_normal: Number(hor.altitude.toFixed(2)),
+    azimuth_ofdate: Number(hor.azimuth.toFixed(2)),
   };
 });
 

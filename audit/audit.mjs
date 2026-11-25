@@ -102,8 +102,9 @@ export function buildMatcher(stars) {
     }
     return lo;
   };
-  return function nearest(lon, lat, window = 2) {
+  return function nearest(lon, lat, window = 2, eps = 0.05) {
     const u = unit(lon, lat);
+    const cands = [];
     const from = lowerBound(lat - window);
     const to = lowerBound(lat + window);
     let best = null;
@@ -111,6 +112,7 @@ export function buildMatcher(stars) {
     for (let k = from; k < to; k++) {
       const s = stars[idx[k]];
       const d = sepDeg(u, s.u);
+      if (d <= eps) cands.push({ hip: s.hip, sep: d, mag: s.mag });
       if (!best || d < best.sep) {
         second = best;
         best = { hip: s.hip, sep: d, mag: s.mag };
@@ -118,7 +120,7 @@ export function buildMatcher(stars) {
         second = { hip: s.hip, sep: d, mag: s.mag };
       }
     }
-    return { best, second };
+    return { best, second, cands };
   };
 }
 
@@ -148,7 +150,7 @@ export function matchPolylines(fc, nearest, eps, magLimit = 6.0) {
         const [lon, lat] = line[vi];
         vertices++;
         vCount++;
-        const { best, second } = nearest(lon, lat);
+        const { best, cands } = nearest(lon, lat, 2, eps);
         let key = '>=2/なし';
         if (best) {
           const e = HIST_EDGES.find((x) => best.sep < x);
@@ -157,13 +159,21 @@ export function matchPolylines(fc, nearest, eps, magLimit = 6.0) {
         hist[key]++;
         let cur = null;
         if (best && best.sep <= eps) {
-          if (second && second.sep <= eps) {
-            ambiguous.push({ feature: id, vertex: vi, lon, lat, first: best, second });
-          } else {
-            cur = best.hip;
-            hipSet.add(cur);
-            if (best.mag > magLimit) faint.push({ feature: id, vertex: vi, hip: best.hip, mag: best.mag });
+          // 規則: eps内に複数の星があるときは一番明るい星を採用(同等なら近い方)
+          const sorted = [...cands].sort((a, b) => a.mag - b.mag || a.sep - b.sep);
+          const chosen = sorted[0];
+          if (sorted.length > 1) {
+            ambiguous.push({
+              feature: id, vertex: vi, lon, lat,
+              chosen, nearest: best, others: sorted.slice(1),
+              chosenIsNearest: chosen.hip === best.hip,
+              needsReview: Math.abs(sorted[0].mag - sorted[1].mag) < 0.5,
+            });
           }
+          cur = chosen.hip;
+          hipSet.add(cur);
+          // 方針: 6.0等より暗くても線の構成星は残す(例外採用)。等級は改変しない
+          if (chosen.mag > magLimit) faint.push({ feature: id, vertex: vi, hip: chosen.hip, mag: chosen.mag });
         } else {
           vUnmatched++;
           unmatched.push({ feature: id, vertex: vi, lon, lat, nearest: best });
@@ -219,9 +229,16 @@ export function analyzeNames(obj, magByHip) {
 
 // ---------- 選択対象の概算(実データから数える) ----------
 export function selectionCounts(lineHips, namedHips, magByHip, limits = [3.5, 4.5, 5.5, 6.0]) {
-  const union = new Set([...lineHips, ...namedHips].filter((h) => (magByHip.get(h) ?? 99) <= 6.0));
-  const res = { union_le_6: union.size, lineVertexStars_le_6: [...lineHips].filter((h) => (magByHip.get(h) ?? 99) <= 6).length };
-  for (const lim of limits) res[`union_le_${lim}`] = [...union].filter((h) => magByHip.get(h) <= lim).length;
+  // 候補集合 = 線の構成星(等級によらず) ∪ 固有名のある星(6.0等以下)
+  const union = new Set([...lineHips, ...[...namedHips].filter((h) => (magByHip.get(h) ?? 99) <= 6.0)]);
+  const res = {
+    union_all: union.size,
+    union_le_6: [...union].filter((h) => (magByHip.get(h) ?? 99) <= 6.0).length,
+    lineVertexStars_all: lineHips.size,
+    lineVertexStars_le_6: [...lineHips].filter((h) => (magByHip.get(h) ?? 99) <= 6).length,
+    lineExceptions_gt_6: [...lineHips].filter((h) => (magByHip.get(h) ?? 99) > 6).length,
+  };
+  for (const lim of limits) res[`union_le_${lim}`] = [...union].filter((h) => (magByHip.get(h) ?? 99) <= lim).length;
   return res;
 }
 export function brightButNotSelectable(stars, union, limit = 3.5) {
@@ -405,11 +422,11 @@ export function renderMarkdown(r) {
   m += `\n## 2. 星座線と恒星の突き合わせ【実測】\n\n`;
   const l = r.lines;
   m += `- 許容誤差 ε = ${l.eps}° / 頂点総数 ${l.vertices} / 一致した恒星(重複除く) ${l.uniqueMatchedHip}\n`;
-  m += `- 一致なし ${l.unmatched.length} 件 / 曖昧(εの中に2星) ${l.ambiguous.length} 件 / 6.0等より暗い頂点 ${l.faint.length} 件\n\n`;
+  m += `- 一致なし ${l.unmatched.length} 件 / εの中に複数星(一番明るい星を採用) ${l.ambiguous.length} 件(うち要確認 ${l.ambiguous.filter((a) => a.needsReview).length} 件) / 6.0等より暗い構成星(例外採用) ${l.faint.length} 件\n\n`;
   m += `最近傍距離の分布(度):\n\n` + mdTable(['区間', '頂点数'], Object.entries(l.histogram).map(([k, v]) => [k, v]));
   if (l.unmatched.length) m += `\n一致なし(先頭20件): ${JSON.stringify(l.unmatched.slice(0, 20))}\n`;
-  if (l.ambiguous.length) m += `\n曖昧(先頭20件): ${JSON.stringify(l.ambiguous.slice(0, 20))}\n`;
-  if (l.faint.length) m += `\n6.0等より暗い頂点(先頭20件): ${JSON.stringify(l.faint.slice(0, 20))}\n`;
+  if (l.ambiguous.length) m += `\n複数星の頂点(全件): ${JSON.stringify(l.ambiguous)}\n`;
+  if (l.faint.length) m += `\n6.0等より暗い構成星(全件): ${JSON.stringify(l.faint)}\n`;
 
   m += `\n## 3. 星の名前【実測】\n\n`;
   m += `- starnames.json 総エントリ ${r.names.totalEntries} / 固有名あり ${r.names.withProperName} / うち6.0等以下 ${r.names.namedWithMag_le_6}\n`;
