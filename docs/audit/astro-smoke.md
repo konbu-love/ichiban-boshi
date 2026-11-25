@@ -1,0 +1,156 @@
+# 天文ライブラリ動作確認
+
+- astronomy-engine: 2.1.19
+- 失敗した項目は「未確認事項が残る」という意味です。
+
+## ✅ API名の存在確認
+
+```json
+{
+ "Observer": "function",
+ "Horizon": "function",
+ "Equator": "function",
+ "SearchAltitude": "function",
+ "SearchRiseSet": "function",
+ "Illumination": "function",
+ "MoonPhase": "function",
+ "Body": "object",
+ "Direction": "undefined",
+ "MakeTime": "function",
+ "Rotation_EQJ_EQD": "function",
+ "RotateVector": "function",
+ "VectorFromSphere": "function",
+ "Spherical": "function",
+ "EquatorFromVector": "function",
+ "SunPosition": "function",
+ "SiderealTime": "function",
+ "AngleFromSun": "function",
+ "Elongation": "function",
+ "GeoVector": "function",
+ "HelioVector": "function"
+}
+```
+
+## ✅ 太陽が-12°になる時刻の探索と検算
+
+```json
+{
+ "-6": {
+  "utc": "2026-12-21T08:04:06.439Z",
+  "measuredAltitude": -5.39
+ },
+ "-9": {
+  "utc": "2026-12-21T08:20:04.787Z",
+  "measuredAltitude": -8.412
+ },
+ "-12": {
+  "utc": "2026-12-21T08:35:48.916Z",
+  "measuredAltitude": -11.433
+ },
+ "-18": {
+  "utc": "2026-12-21T09:06:42.346Z",
+  "measuredAltitude": -17.477
+ }
+}
+```
+
+## ✅ J2000座標の扱い(北極星で比較)
+
+```json
+{
+ "polarisHip": 11767,
+ "observerLatitude": 35,
+ "altitude_direct_J2000": 35.7454,
+ "altitude_converted_EQD": 35.6456,
+ "differenceDeg": 0.0998,
+ "azimuth_direct": 359.825,
+ "azimuth_converted": 359.969,
+ "note": "北極星の高度は観測地の緯度に近いはず(極からのずれ約0.7°)。direct と converted の差が座標系の違いの大きさ。"
+}
+```
+
+## ❌ 月の位置(観測者基準と地心基準)
+
+```json
+"Not an instance of the Observer class: null"
+```
+
+## ✅ 金星・木星の等級と輝面比
+
+```json
+{
+ "Venus": {
+  "mag": -4.7,
+  "phase_fraction": 0.426
+ },
+ "Jupiter": {
+  "mag": -2.34,
+  "phase_fraction": 0.994
+ },
+ "Mars": {
+  "mag": 0.1,
+  "phase_fraction": 0.915
+ },
+ "Saturn": {
+  "mag": 0.69,
+  "phase_fraction": 0.997
+ },
+ "Mercury": {
+  "mag": -0.89,
+  "phase_fraction": 0.986
+ },
+ "Moon": {
+  "mag": -11.92,
+  "phase_fraction": 0.903,
+  "moonPhaseAngleDeg": 143.93
+ }
+}
+```
+
+## ✅ 金星の出没時刻検索
+
+```json
+{
+ "riseUtc": "2026-12-21T18:05:40.319Z",
+ "setUtc": "2026-12-21T04:57:57.422Z"
+}
+```
+
+## ✅ 極点・高緯度の方位角の返り値
+
+```json
+{
+ "90": {
+  "altitude": 20.046,
+  "azimuth": 15.075
+ },
+ "-90": {
+  "altitude": -19.491,
+  "azimuth": 164.925
+ },
+ "89.99": {
+  "altitude": 20.036,
+  "azimuth": 15.074
+ },
+ "69.65": {
+  "altitude": 0.737,
+  "azimuth": 14.147
+ },
+ "78.2": {
+  "altitude": 8.686,
+  "azimuth": 14.31
+ }
+}
+```
+
+## ✅ Horizon 1万回の所要時間(ランナー上)
+
+```json
+{
+ "calls": 10000,
+ "totalMs": 16.4,
+ "perCallMicroseconds": 1.64,
+ "checksum": -2806.9
+}
+```
+
