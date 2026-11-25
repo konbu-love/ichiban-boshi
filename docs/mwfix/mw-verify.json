@@ -1,0 +1,254 @@
+{
+  "meta": {
+    "source": "d3-celestial data/mw.json(出典: Milky Way Outline Catalog, Jose R. Vieira)",
+    "d3CelestialVersion": "0.7.35",
+    "format": "[0, 赤経J2000(度), 赤緯J2000(度), level(1〜5)]。先頭の0は試作28の形式に合わせた予約欄",
+    "gridStepDeg": 3,
+    "method": "銀河座標の格子点を、各等光度線の輪(細分0.25°)に対する北向き子午線の交差回数の偶奇で判定",
+    "galacticDefinition": {
+      "ra": 192.85948,
+      "dec": 27.12825,
+      "lNCP": 122.93192
+    }
+  },
+  "gridCount": 4030,
+  "sampleCount": 775,
+  "levelCount": [
+    575,
+    119,
+    64,
+    10,
+    7
+  ],
+  "layerInfo": [
+    {
+      "id": "ol1",
+      "rings": 10,
+      "vertices": 10129
+    },
+    {
+      "id": "ol2",
+      "rings": 113,
+      "vertices": 12483
+    },
+    {
+      "id": "ol3",
+      "rings": 46,
+      "vertices": 5651
+    },
+    {
+      "id": "ol4",
+      "rings": 27,
+      "vertices": 1849
+    },
+    {
+      "id": "ol5",
+      "rings": 6,
+      "vertices": 584
+    }
+  ],
+  "checks": [
+    {
+      "name": "点が十分にある(200点以上)",
+      "ok": true,
+      "detail": "775点"
+    },
+    {
+      "name": "銀緯45°超の点がない(天の川の帯の外を含まない)",
+      "ok": true,
+      "detail": "0点"
+    },
+    {
+      "name": "南天(赤緯-30°より南)にも点がある",
+      "ok": true,
+      "detail": "251点"
+    },
+    {
+      "name": "赤緯の範囲が両半球にまたがる",
+      "ok": true,
+      "detail": "-74.8〜66.7"
+    },
+    {
+      "name": "銀経0〜360°のどこでも銀河面近く(|b|≦3°)に点がある",
+      "ok": true,
+      "detail": "欠けなし"
+    },
+    {
+      "name": "銀河中心方向(l=0,b=0)は内側(1層以上)",
+      "ok": true,
+      "detail": "3層"
+    },
+    {
+      "name": "銀河反中心方向(l=180,b=0)は内側(1層以上)",
+      "ok": true,
+      "detail": "1層"
+    },
+    {
+      "name": "銀河北極・南極付近(|b|=89°)は外側(0層)",
+      "ok": true,
+      "detail": "北0層/南0層"
+    },
+    {
+      "name": "銀緯±60°は外側(0層)",
+      "ok": true,
+      "detail": "+60:0層 / -60:0層"
+    }
+  ],
+  "stats": {
+    "count": 775,
+    "absBMedian": 6,
+    "absBP90": 12,
+    "absBMax": 21,
+    "decMin": -74.8,
+    "decMax": 66.7,
+    "southOfMinus30": 251,
+    "withinB10": 676,
+    "beyondB45": 0
+  },
+  "profile": [
+    {
+      "lRange": "0-30",
+      "n": 94,
+      "maxLevel": 5,
+      "bMin": -18,
+      "bMax": 18
+    },
+    {
+      "lRange": "30-60",
+      "n": 70,
+      "maxLevel": 4,
+      "bMin": -12,
+      "bMax": 12
+    },
+    {
+      "lRange": "60-90",
+      "n": 84,
+      "maxLevel": 4,
+      "bMin": -12,
+      "bMax": 12
+    },
+    {
+      "lRange": "90-120",
+      "n": 59,
+      "maxLevel": 3,
+      "bMin": -15,
+      "bMax": 12
+    },
+    {
+      "lRange": "120-150",
+      "n": 36,
+      "maxLevel": 2,
+      "bMin": -12,
+      "bMax": 3
+    },
+    {
+      "lRange": "150-180",
+      "n": 32,
+      "maxLevel": 2,
+      "bMin": -9,
+      "bMax": 9
+    },
+    {
+      "lRange": "180-210",
+      "n": 68,
+      "maxLevel": 1,
+      "bMin": -9,
+      "bMax": 15
+    },
+    {
+      "lRange": "210-240",
+      "n": 54,
+      "maxLevel": 2,
+      "bMin": -9,
+      "bMax": 6
+    },
+    {
+      "lRange": "240-270",
+      "n": 58,
+      "maxLevel": 3,
+      "bMin": -9,
+      "bMax": 9
+    },
+    {
+      "lRange": "270-300",
+      "n": 67,
+      "maxLevel": 3,
+      "bMin": -12,
+      "bMax": 12
+    },
+    {
+      "lRange": "300-330",
+      "n": 68,
+      "maxLevel": 3,
+      "bMin": -12,
+      "bMax": 9
+    },
+    {
+      "lRange": "330-360",
+      "n": 85,
+      "maxLevel": 5,
+      "bMin": -15,
+      "bMax": 21
+    }
+  ],
+  "old": {
+    "stats": {
+      "count": 610,
+      "absBMedian": 8.1,
+      "absBP90": 67.6,
+      "absBMax": 89.5,
+      "decMin": 27.5,
+      "decMax": 65,
+      "southOfMinus30": 0,
+      "withinB10": 353,
+      "beyondB45": 123
+    },
+    "checks": [
+      {
+        "name": "点が十分にある(200点以上)",
+        "ok": true,
+        "detail": "610点"
+      },
+      {
+        "name": "銀緯45°超の点がない(天の川の帯の外を含まない)",
+        "ok": false,
+        "detail": "123点"
+      },
+      {
+        "name": "南天(赤緯-30°より南)にも点がある",
+        "ok": false,
+        "detail": "0点"
+      },
+      {
+        "name": "赤緯の範囲が両半球にまたがる",
+        "ok": false,
+        "detail": "27.5〜65"
+      },
+      {
+        "name": "銀経0〜360°のどこでも銀河面近く(|b|≦3°)に点がある",
+        "ok": false,
+        "detail": "欠け: l=0,30,180,210,240,270,300,330°台"
+      },
+      {
+        "name": "銀河中心方向(l=0,b=0)は内側(1層以上)",
+        "ok": true,
+        "detail": "3層"
+      },
+      {
+        "name": "銀河反中心方向(l=180,b=0)は内側(1層以上)",
+        "ok": true,
+        "detail": "1層"
+      },
+      {
+        "name": "銀河北極・南極付近(|b|=89°)は外側(0層)",
+        "ok": true,
+        "detail": "北0層/南0層"
+      },
+      {
+        "name": "銀緯±60°は外側(0層)",
+        "ok": true,
+        "detail": "+60:0層 / -60:0層"
+      }
+    ]
+  }
+}
