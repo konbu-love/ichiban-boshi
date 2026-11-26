@@ -1,0 +1,87 @@
+================================================================
+今日の自分の一番星を探せ  ― 利用したソフトウェア・データの表示(NOTICE)
+================================================================
+
+----------------------------------------------------------------
+1. Astronomy Engine(位置計算ライブラリ)  ライセンス: MIT   【確認済み】
+   版: 2.1.19
+   入手元: https://github.com/cosinekitty/astronomy
+----------------------------------------------------------------
+MIT License
+
+Copyright (c) 2019-2023 Don Cross <cosinekitty@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+----------------------------------------------------------------
+2. d3-celestial(星・星座線・天の川・星名などのデータ)  ライセンス: BSD-3-Clause   【確認済み】
+   版: 0.7.35   入手元: https://github.com/ofrohn/d3-celestial
+   (下の原文は npm パッケージ d3-celestial@0.7.35 の LICENSE ファイルそのもの)
+----------------------------------------------------------------
+Copyright (c) 2015, Olaf Frohn
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+----------------------------------------------------------------
+3. d3-celestial が挙げているデータの出典(d3-celestial の README の記述による)  【出典名は確認済み/各データの個別の利用条件は未確認】
+----------------------------------------------------------------
+ - 恒星: XHIP: An Extended Hipparcos Compilation (Anderson E., Francis C., 2012), CDS VizieR V/137D
+ - 星名・符号: HD-DM-GC-HR-HIP-Bayer-Flamsteed Cross Index (Kostjuk, 2002) ほか
+ - 星名の翻訳(日本語を含む): Stellarium skycultures data
+ - 星座線・星座名: IAU Constellation page、名前の位置と一部の線の修正は d3-celestial 作者による。
+   他言語の星座名は Wikipedia から
+ - 天の川の輪郭: Milky Way Outline Catalog (Jose R. Vieira)
+ - 星雲・銀河の参考資料（将来の拡張候補）: dsos.bright.json
+ d3-celestial の README は、これらの個別データに別のライセンスを示していません(リポジトリ全体が BSD-3-Clause)。
+ ただし、元データ(XHIP/Hipparcos、Stellarium、Wikipedia、Vieira)側の利用条件を、
+ 個別の利用条件は未確認です。→ 【未確認】(下の「出典・ライセンスの確認状況」)
+
+----------------------------------------------------------------
+4. このゲーム独自の計算・数値(ライセンス表示ではなく出典・性質の表示)
+----------------------------------------------------------------
+ - 流星群の活動期間・放射点: International Meteor Organization (IMO) Meteor Shower Calendar
+   (Table 5 の値を目安として使用)https://www.imo.net/
+ - ハレー彗星の等級パラメータ(M1=5.5, K1=8.0): NASA/JPL Small-Body Database
+   軌道要素は二体問題の近似(惑星の引力による変化は無視)。位置・明るさは概算の【演出】
+ - 観測地点の座標: Wikipedia、国土地理院(地理院地図の住所検索)など。利用条件の確認は【未確認】
+ - 星の位置・月・惑星・太陽の計算: Astronomy Engine(上記)
+ - 天の川・流星・願い事・オーロラ・彗星の尾・景色は【演出】で、実際の空を精密に再現するものではありません。
+
+----------------------------------------------------------------
+5. 出典・ライセンスの確認状況(未確認のもの)
+----------------------------------------------------------------
+ (a) 日本語の星名(Stellarium skycultures 由来とされるもの)と星座の日本語名(Wikipedia 由来とされるもの)の利用条件
+ (b) XHIP(Hipparcos 由来)・Vieira の天の川輪郭の利用条件
+ (c) 観測地点の座標(Wikipedia の記事の座標/国土地理院コンテンツ)の利用条件。地点座標の個別照合は未完了
+ (d) 上のいずれかに「出典の表示」や「同じ条件での公開」が求められる場合の文言
+
+本アプリは恒星データの取得に CDS VizieR を利用しています。
+国土地理院（地理院地図・住所検索）：https://www.gsi.go.jp/
+XHIP: https://vizier.cds.unistra.fr/viz-bin/cite/V/137D
+上記の個別利用条件には未確認の項目があります。出典表示は利用許諾の確認を意味しません。
